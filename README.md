@@ -21,7 +21,7 @@
  > Your project description should summarize the project you are proposing. Be sure to include
  > 
  > * Why is it important or interesting to you?
- >   This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
+ >   * This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * C++ - We'll be using C++ to implement/code our system design.
  >   * Git - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
