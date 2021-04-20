@@ -23,8 +23,8 @@
  > * Why is it important or interesting to you?
  >   * This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * C++ - We'll be using C++ to implement/code our system design.
- >   * Git - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
+ >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
+ >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
  > * What will be the input/output of your project?
  > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
  >   * Why you picked this pattern and what feature you will implement with it
