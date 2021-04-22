@@ -20,20 +20,16 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > 
- > * Why is it important or interesting to you?
- >   * This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
+ > * This project is interesting to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems we may implement in the future.
+ > * The languages/tools we plan on using include:
  >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
  >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
  >   * [GoogleTest](https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
  >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
- > * What will be the input/output of your project?
+ > * The inputs and outputs of our project include:
  >   * Inputs: username, password, book ISBN, book title, author, genre, and sub-genre.
  >   * Outputs: list of books (sorted based on our search algorithms), matched book, and user/admin interfaces (screen for login, adding/deleting users, adding/deleting books, etc.).
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
+ > * The design patterns we'll be using:
  >   * We'll be using the Composite design pattern to break up our library system into smaller chunks in order to better structure our program. We plan to use this design pattern by having a "main" library class acting as the composite object, and then creating "children" classes that are used to implement the smaller functions of the library system broken into chunks. When discussing the Library System project, we realized that having multiple classes and functions (such as User, Admin, Book, Library, Account, etc.) can make our program harder to develop and lead to more bugs/problems in the end. Because the library system is 1 system with all of these classes/functions, we believe we can design our system in a tree like pattern, so the main library object will be on the top and all other objects will extend from it.
  >   * We'll be using the Strategy design pattern to implement various book search functions, such as search by ISBN, name, genre/sub-genre, and author. A problem we anticipate encountering is not being able to search books with a generalized search function. This is because we're allowing users to search with different inputs. The Strategy design pattern is a good solution to this problem because it allows us to create multiple search functions without affecting the general search result. The different search functions will take in different inputs, but will all function the same way by returning a matched book or genre.
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
