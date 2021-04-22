@@ -25,6 +25,8 @@
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
  >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
+ >   * [GoogleTest] (https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
+ >   * [Valgrind] (https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
  > * What will be the input/output of your project?
  > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
  >   * Why you picked this pattern and what feature you will implement with it
