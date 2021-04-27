@@ -1,10 +1,5 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Library System
  > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: Abhinav Allam, Aung Thu Hein, Daniel Ko
  
  > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
@@ -15,22 +10,23 @@
  > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
  > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
  > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
+> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group
+
+ > Authors: Abhinav Allam(https://github.com/kineticdirt) Aung Thu Hein (https://github.com/aungthuhein13)   Daniel Ko(https://github.com/DanielKoKo)\>
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > 
- > * Why is it important or interesting to you?
- >   This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * C++ - We'll be using C++ to implement/code our system design.
- >   * Git - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+ > * This project is interesting to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems we may implement in the future.
+ > * The languages/tools we plan on using include:
+ >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
+ >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
+ >   * [GoogleTest](https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
+ >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
+ > * The inputs and outputs of our project include:
+ >   * Inputs: username, password, book ISBN, book title, author, genre, and sub-genre.
+ >   * Outputs: list of books (sorted based on our search algorithms), matched book, and user/admin interfaces (screen for login, adding/deleting users, adding/deleting books, etc.).
+ > * The design patterns we'll be using:
+ >   * We'll be using the Composite design pattern to break up our library system into smaller chunks in order to better structure our program. We plan to use this design pattern by having a "main" library class acting as the composite object, and then creating "children" classes that are used to implement the smaller functions of the library system broken into chunks. When discussing the Library System project, we realized that having multiple classes and functions (such as User, Admin, Book, Library, Account, etc.) can make our program harder to develop and lead to more bugs/problems in the end. Because the library system is 1 system with all of these classes/functions, we believe we can design our system in a tree like pattern, so the main library object will be on the top and all other objects will extend from it.
+ >   * We'll be using the Strategy design pattern to implement various book search functions, such as search by ISBN, name, genre/sub-genre, and author. A problem we anticipate encountering is not being able to search books with a generalized search function. This is because we're allowing users to search with different inputs. The Strategy design pattern is a good solution to this problem because it allows us to create multiple search functions without affecting the general search result. The different search functions will take in different inputs, but will all function the same way by returning a matched book or genre.
 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
