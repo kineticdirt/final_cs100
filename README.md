@@ -40,9 +40,13 @@
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
+
  > ![Composite pattern](https://user-images.githubusercontent.com/32584958/117520545-8ef25e80-af5d-11eb-8c3e-978b74ca4604.png)
 
- 
+ > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/117520605-d547bd80-af5d-11eb-98f3-93abd5bb4045.png)
+
+ > ![Program Diagram](https://user-images.githubusercontent.com/32584958/117520632-f01a3200-af5d-11eb-8e12-0a905f147094.png)
+
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
