@@ -45,7 +45,8 @@
 
  > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/117520605-d547bd80-af5d-11eb-98f3-93abd5bb4045.png)
 
- > ![Program Diagram](https://user-images.githubusercontent.com/32584958/117520632-f01a3200-af5d-11eb-8e12-0a905f147094.png)
+ > ![Program Diagram](https://user-images.githubusercontent.com/32584958/117520712-84849480-af5e-11eb-8278-8090cc364131.png)
+
 
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
