@@ -5,36 +5,24 @@
 
 using namespace std;
 
-Book::Book(BookNode* booklist){
-	this->booklist = booklist;
-}
-
-Book::~Book() {
-	delete [] booklist;
-}
+Book::Book(string ISBN,string name,string author) : ISBN(ISBN),name(name),author(author){}
 
 string Book::GetISBN() const {
-	auto s = to_string(booklist->ISBN); // CONVERT INT TO STRING
-	return s;
+	return ISBN;
 }
 
 string Book::Getname() const {
-	return booklist->name;
+	return name;
 }
 
 string Book::Getauthor() const {
-	return booklist->author;
+	return author;
 }
 
-string Book::Getgenre() const {
-	return booklist->genre;
-}
-
-void Book::print(ostream& out) const {
-	out << "ISBN: " << booklist->ISBN << endl;
-	out << "Name: " << booklist->name << endl;
-	out << "Author: " << booklist->author << endl;
-	out << "Genre: " << booklist->genre << endl;
+void Book::print(ostream& out) const{
+	out << "ISBN: " << ISBN << endl;
+	out << "Name: " << name << endl;
+	out << "Author: " << author << endl;
 }
 
 #endif // !___BOOK__CPP___

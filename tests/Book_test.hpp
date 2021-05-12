@@ -2,36 +2,31 @@
 #define __Book__TEST__HPP
 
 #include "gtest/gtest.h"
-#include "../Book.cpp"
 #include "../Book.hpp"
+#include "../Book.cpp"
 #include <iostream>
 using namespace std;
 
 TEST(BookTest,ConstructorTest){
 	stringstream out;
-	Book* test = new Book(new BookNode({1521,"Hamlet","William Shakespeare","Drama"}));
+	Book* test = new Book("12345","Hamlet","William Shakespeare");
 	test->print(out);
-	EXPECT_EQ(out.str(),"ISBN: 1521\nName: Hamlet\nAuthor: William Shakespeare\nGenre: Drama\n");
+	EXPECT_EQ(out.str(),"ISBN: 12345\nName: Hamlet\nAuthor: William Shakespeare\n");
 }
 
 TEST(BookTest,ISBNTest){
-	Book* test = new Book(new BookNode({1521,"Hamlet","William Shakespeare","Drama"}));
-	EXPECT_EQ(test->GetISBN(), "1521");
+	Book* test = new Book("12345","Hamlet","William Shakespeare");
+	EXPECT_EQ(test->GetISBN(), "12345");
 }
 
 TEST(BookTest,NameTest){
-	Book* test = new Book(new BookNode({1521,"Hamlet","William Shakespeare","Drama"}));
+	Book* test = new Book("12345","Hamlet","William Shakespeare");
 	EXPECT_EQ(test->Getname(), "Hamlet");
 }
 
 TEST(BookTest,AuthorTest){
-	Book* test = new Book(new BookNode({1521,"Hamlet","William Shakespeare","Drama"}));
+	Book* test = new Book("12345","Hamlet","William Shakespeare");
 	EXPECT_EQ(test->Getauthor(), "William Shakespeare");
-}
-
-TEST(BookTest,GenreTest){
-	Book* test = new Book(new BookNode({1521,"Hamlet","William Shakespeare","Drama"}));
-	EXPECT_EQ(test->Getgenre(), "Drama");
 }
 
 #endif
