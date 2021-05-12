@@ -48,10 +48,6 @@
  > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/117520605-d547bd80-af5d-11eb-98f3-93abd5bb4045.png)
 > * Our Strategy design pattern consists of the User/Admin object pointing to a "Context" class, which would include the vector of available books. This allows the User/Admin to have access to all available books. The Context would point to the pure abstract Search interface, which is the basis for our strategy pattern. Our Search interface will have 4 different search algorithms inheriting from it, depending on which one the Context points to. Each algorithm would function the same way, but with some input and other variations.
 
- > ![Program Diagram](https://user-images.githubusercontent.com/32584958/117520712-84849480-af5e-11eb-8278-8090cc364131.png)
-> * The program diagram shown represents the overall structure on how the classes and components will interact with each other. Each arrow simply means that the class will 'lead into' or have access to the functions of the underling classes. The Interface has access to both the user and the admin/librarian in order to give users the correct account type. The user hass access to the search function for indexing through the catalog of books, and the books database directly in order to check out, or return books. The Librarian has access to the user classes, the books and the search, as they are a sort of admin who needs to be able to modify the other classes, or do the functions of other classes. The Search class is a component meant to represent the overall search function and its complexities(as a class), and the Book class is the database of all of the books in the library.
-
-
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
