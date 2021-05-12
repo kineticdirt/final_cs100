@@ -42,7 +42,7 @@
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
 
 
- > ![Composite pattern](https://user-images.githubusercontent.com/32584958/117520545-8ef25e80-af5d-11eb-8c3e-978b74ca4604.png)
+ > ![Composite pattern](https://user-images.githubusercontent.com/32584958/117906849-87e38d00-b28a-11eb-9e5b-064251f3d48b.png)
 > * Above image is the composite pattern that describes a group of books that is treated the same way as a single instance of the same type of all objects. 
 Our composite pattern consists of Book(Component), User (leaf), and Admin (Composite). Book(Component) is the pure virtual interface which declares the function view_books for both classes. 
 This interface allows the user/admin to display all the books that are in the library system. Book(component) allows the admin to add,remove,edit, and lend books to user.
