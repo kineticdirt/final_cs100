@@ -43,9 +43,7 @@
 
 
  > ![Composite pattern](https://user-images.githubusercontent.com/32584958/117906849-87e38d00-b28a-11eb-9e5b-064251f3d48b.png)
-> * Above image is the composite pattern that describes a group of books that is treated the same way as a single instance of the same type of all objects. 
-Our composite pattern consists of Book(Component), User (leaf), and Admin (Composite). Book(Component) is the pure virtual interface which declares the function view_books for both classes. 
-This interface allows the user/admin to display all the books that are in the library system. Book(component) allows the admin to add,remove,edit, and lend books to user.
+> * The diagram above is our Composite pattern which describes the tree-like structure of our Books hierarchy. Our user/admin can point to BooksComponent and print a list of all books with their respective genres and subgenres. BooksComponent contains empty implementations for the add, remove, reorganize_books, and edit_books functions that will be overloaded by our Composite class BooksGroup. BooksComponent will also include the virtual function display that will call the display function for our leaf and composite classes in the BookComponent hierarchy by printing each genre’s books and its subgenre’s books as well. BookGroup will include the list of all books in a genre and have the ability to manipulate the list. Book is the leaf class and will be an instance of a single book with only the primitive ability to print its own information. 
 
  > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/117520605-d547bd80-af5d-11eb-98f3-93abd5bb4045.png)
 > * Our Strategy design pattern consists of the User/Admin object pointing to a "Context" class, which would include the vector of available books. This allows the User/Admin to have access to all available books. The Context would point to the pure abstract Search interface, which is the basis for our strategy pattern. Our Search interface will have 4 different search algorithms inheriting from it, depending on which one the Context points to. Each algorithm would function the same way, but with some input and other variations.
