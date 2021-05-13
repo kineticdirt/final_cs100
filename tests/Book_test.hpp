@@ -3,30 +3,45 @@
 
 #include "gtest/gtest.h"
 #include "../Book.hpp"
-#include "../Book.cpp"
+#include "../BookComponent.hpp"
+#include "../BookGroup.hpp"
+#include "../BookGroup.cpp"
 #include <iostream>
 using namespace std;
 
 TEST(BookTest,ConstructorTest){
 	stringstream out;
-	Book* test = new Book("12345","Hamlet","William Shakespeare");
-	test->print(out);
-	EXPECT_EQ(out.str(),"ISBN: 12345\nName: Hamlet\nAuthor: William Shakespeare\n");
+	Book* test = new Book("Hamlet","William Shakespeare");
+	test->display(out);
+	EXPECT_EQ(out.str(),"	Book: Hamlet by William Shakespeare\n");
 }
 
-TEST(BookTest,ISBNTest){
-	Book* test = new Book("12345","Hamlet","William Shakespeare");
-	EXPECT_EQ(test->GetISBN(), "12345");
+TEST(BookTest,ConstructorTest_2){
+	stringstream out;
+	BookGroup* test = new BookGroup("love");
+	test->display(out);
+	EXPECT_EQ(out.str(),"Book Group: love\n\n");
 }
 
-TEST(BookTest,NameTest){
-	Book* test = new Book("12345","Hamlet","William Shakespeare");
-	EXPECT_EQ(test->Getname(), "Hamlet");
+TEST(BookTest,GenreTest){
+	stringstream out;
+	BookComponent* book = new Book("Hamlet","William Shakespeare");
+	BookComponent* test = new BookGroup("love");
+	test->Add(book); 
+	test->display(out);
+	EXPECT_EQ(out.str(),"Book Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n");
 }
 
-TEST(BookTest,AuthorTest){
-	Book* test = new Book("12345","Hamlet","William Shakespeare");
-	EXPECT_EQ(test->Getauthor(), "William Shakespeare");
+TEST(BookTest,Sub_Genre_Test){
+	stringstream out;
+	BookComponent* book = new Book("Hamlet","William Shakespeare");
+	BookComponent* sub_genre = new BookGroup("love");
+	sub_genre->Add(book);
+	BookComponent* test = new BookGroup("Drama"); 
+	test->Add(sub_genre); 
+	test->display(out);
+	EXPECT_EQ(out.str(),"Book Group: Drama\n\n\tBook Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n\n");
 }
+
 
 #endif
