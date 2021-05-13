@@ -1,7 +1,7 @@
 #ifndef __BOOKGROUP__CPP
 #define __BOOKGROUP__CPP
 
-#include "BookGroup.hpp"
+#include "../header/BookGroup.hpp"
 #include <iostream>
 using namespace std;
 

@@ -2,10 +2,10 @@
 #define __Book__TEST__HPP
 
 #include "gtest/gtest.h"
-#include "../Book.hpp"
-#include "../BookComponent.hpp"
-#include "../BookGroup.hpp"
-#include "../BookGroup.cpp"
+#include "../header/Book.hpp"
+#include "../header/BookComponent.hpp"
+#include "../header/BookGroup.hpp"
+#include "../src/BookGroup.cpp"
 #include <iostream>
 using namespace std;
 
