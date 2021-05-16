@@ -1,4 +1,5 @@
 #include "../header/library.hpp"
+#include <limits>
 
 Library::Library()
 {
@@ -17,7 +18,7 @@ void Library::initialize()
     while (true)
     {
 	choice = menu();
-
+  	
         if (choice == '2')
 	{
 	    login();
@@ -52,19 +53,19 @@ char Library::menu()
     while (choice != '1' && choice != '2' && choice != '3')
     {
 	cin >> choice;
+	cin.ignore(); 
 
-        if (choice == '1')
-    	{
+	if (choice == '1')	
+	{
 	    create_acc();
-    	}
+	}
         else if (choice == '2' || choice == '3')
 	{
 	    return choice;
 	}
-    	else
+    	else if (choice != '1')
     	{
 	    cout << "Enter a valid menu option!" << endl;
-	    cin.clear();
     	}
     }
 }
@@ -81,8 +82,6 @@ void Library::create_acc()
     	cout << acc_file_name << " does not exist!" << endl;
         menu();
     }
-    
-    cin.ignore();
  
     cout << "Enter a username: ";
     getline(cin, username);
@@ -91,11 +90,12 @@ void Library::create_acc()
     
     outFile << username << "\n";
     outFile << password << "\n";
-    outFile << "User \n\n";
+    outFile << "User \n";
 
     outFile.close();
 
     cout << "\nAccount " << username << " successfully created!" << endl;
+
     menu();
 }
 
@@ -107,7 +107,6 @@ void Library::login()
     string read_user;   //username to read from accounts.txt
     string read_pass;   //password to read from accounts.txt
     string read_admin;  //checks for admin privileges
-    cin.ignore();
 
     cout << "Username: ";
     getline(cin, username);
@@ -138,6 +137,7 @@ void Library::login()
 	    cout << "\nWelcome, ";
 	    cout << username;
  
+	    //only prints if User is Admin
             if (read_admin == "Admin")
 	    {
  		cout << " (Admin)";
