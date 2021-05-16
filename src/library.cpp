@@ -100,6 +100,8 @@ void Library::login()
        	getline(inFile, read_pass);
         getline(inFile, read_admin);
 
+	//cout << "Read " << read_user << ", " << read_pass << ", " << read_admin << endl;
+
   	if (read_user == username && read_pass == password)
 	{
 	    cout << "\nWelcome, ";
