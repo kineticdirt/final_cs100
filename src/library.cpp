@@ -10,19 +10,46 @@ Library::Library(string acc_file_name)
     this->acc_file_name = acc_file_name;
 }
 
-void Library::menu()
+void Library::initialize()
+{
+    char choice;
+	
+    while (true)
+    {
+	choice = menu();
+
+        if (choice == '2')
+	{
+	    login();
+	    if (curr_user != nullptr)
+	    {
+		//loops user interface until user logs out
+		while (curr_user->initialize()) { }
+	    }
+	}
+        else if (choice == '3')
+	{
+	    cout << "Goodbye!" << endl;
+	    break;
+	}	
+    }
+}
+
+char Library::menu()
 {
     char choice = ' ';
-    
+   
+    /* Menu Output */ 
     cout << endl;
     cout << "========================" << endl;    
     cout << "------Library Menu------" << endl;
     cout << "========================" << endl;
-
     cout << "1. Create Account" << endl;
     cout << "2. Login" << endl;
-  
-    while (choice != '1' && choice != '2')
+    cout << "3. Exit" << endl;
+ 
+    /* User Input */ 
+    while (choice != '1' && choice != '2' && choice != '3')
     {
 	cin >> choice;
 
@@ -30,10 +57,10 @@ void Library::menu()
     	{
 	    create_acc();
     	}
-    	else if (choice == '2')
-    	{	
-	    login();
-    	}
+        else if (choice == '2' || choice == '3')
+	{
+	    return choice;
+	}
     	else
     	{
 	    cout << "Enter a valid menu option!" << endl;
@@ -91,21 +118,24 @@ void Library::login()
     if (!inFile.is_open())
     {
       	cout << acc_file_name << " does not exist!" << endl;
-        menu();
+	return;
     } 
 
     while (!inFile.eof())
     {
+	/* Reads User Info From File */
  	getline(inFile, read_user);
        	getline(inFile, read_pass);
         getline(inFile, read_admin);
 
-	//cout << "Read " << read_user << ", " << read_pass << ", " << read_admin << endl;
-
+	/* Validates User Exists */
   	if (read_user == username && read_pass == password)
 	{
-	    cout << "\nWelcome, ";
+	    //sets current user information
+	    curr_user = new User(username, password);
 
+	    /* Outputs Welcome Message */
+	    cout << "\nWelcome, ";
 	    cout << username;
  
             if (read_admin == "Admin")
@@ -115,14 +145,13 @@ void Library::login()
 
             cout << "!" << endl;
 
-  	    break;
+	    break;
 	}	
     }
 
     if (read_user != username && read_pass != password)
     {
 	cout << "\nWrong username/password!" << endl;
-	menu();
     }
 
     inFile.close();
