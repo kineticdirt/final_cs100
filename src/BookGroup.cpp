@@ -25,7 +25,7 @@ void BookGroup::Remove(BookComponent* book) {
     for (auto& it : Book_List) {
         BookComponent* bookcomponent = it;
         if (bookcomponent == book) {
-            Book_List.erase(bookcomponent);
+            Book_List.erase(it);
             break;
         }
     }
