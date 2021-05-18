@@ -25,6 +25,7 @@ void BookGroup::Remove(BookComponent* book ) {
 		if (*pos == book) {
 			Book_List.erase(pos);
    			break;
+		}
     }
 }
 
