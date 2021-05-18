@@ -68,7 +68,7 @@ string Admin::get_password() const
 {
     return password;
 }
-
+/*
 void Admin::view_books()
 {
     stringstream out;
@@ -77,3 +77,4 @@ void Admin::view_books()
 
     cout << out.str() << endl;
 }
+*/
