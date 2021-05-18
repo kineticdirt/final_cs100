@@ -10,34 +10,130 @@ Library::Library(string acc_file_name)
     this->acc_file_name = acc_file_name;
 }
 
-void Library::menu()
+Library::~Library()
+{
+    if (curr_user != nullptr)
+    {
+ 	delete curr_user; 
+    }
+
+    for (auto& i : users)
+    {
+	User* delete_user = i;
+ 	delete delete_user;
+    }
+
+    users.clear();
+
+    if (avail_books != nullptr)
+    {
+	delete avail_books;
+    }
+}
+
+void Library::initialize()
+{
+    char choice;
+
+    //creates list of available books
+    read_books(); 
+
+    //creates list of users
+    read_users();
+
+    while (true)
+    {
+	choice = menu();
+  	
+        if (choice == '2')
+	{
+	    if (login())
+	    {
+		//loops user interface until user logs out
+		while (curr_user->initialize()) { }
+	    }
+	}
+        else if (choice == '3')
+	{
+	    cout << "Goodbye!" << endl;
+	    break;
+	}	
+    }
+}
+
+//this function should read a list of books from a text file,
+//but we'll create books manually for now
+void Library::read_books()
+{       
+    BookComponent* book1 = new Book("Hamlet", "William Shakespeare"); 
+    BookComponent* book2 = new Book("Twilight" , "Stephanie Myers");
+    BookComponent* book3 = new Book("The Crucible", "Arthur Miller");
+    BookComponent* sub_genre = new BookGroup("Romance");
+
+    sub_genre->Add(book1);
+    sub_genre->Add(book2);
+   
+    avail_books = new BookGroup("Drama"); 
+
+    avail_books->Add(book3);
+    avail_books->Add(sub_genre);
+}
+
+void Library::read_users()
+{
+    ifstream inFile;
+    string username;
+    string password;
+    string temp;
+    
+    inFile.open(acc_file_name);
+    if (!inFile.is_open())
+    {
+	cout << acc_file_name << " does not exist!" << endl;
+    }    
+
+    while (getline(inFile, temp))
+    {
+	username = temp;
+	getline(inFile, temp);
+	password = temp;
+	getline(inFile, temp);
+
+	User* new_user = new User(username, password, avail_books);
+	this->users.push_back(new_user);
+    }
+}
+
+char Library::menu()
 {
     char choice = ' ';
-    
+   
+    /* Menu Output */ 
     cout << endl;
     cout << "========================" << endl;    
     cout << "------Library Menu------" << endl;
     cout << "========================" << endl;
-
     cout << "1. Create Account" << endl;
     cout << "2. Login" << endl;
-  
-    while (choice != '1' && choice != '2')
+    cout << "3. Exit" << endl;
+ 
+    /* User Input */ 
+    while (choice != '1' && choice != '2' && choice != '3')
     {
 	cin >> choice;
+	cin.ignore(); 
 
-        if (choice == '1')
-    	{
+	if (choice == '1')	
+	{
 	    create_acc();
-    	}
-    	else if (choice == '2')
-    	{	
-	    login();
-    	}
-    	else
+	}
+        else if (choice == '2' || choice == '3')
+	{
+	    return choice;
+	}
+    	else if (choice != '1')
     	{
 	    cout << "Enter a valid menu option!" << endl;
-	    cin.clear();
     	}
     }
 }
@@ -54,8 +150,6 @@ void Library::create_acc()
     	cout << acc_file_name << " does not exist!" << endl;
         menu();
     }
-    
-    cin.ignore();
  
     cout << "Enter a username: ";
     getline(cin, username);
@@ -64,68 +158,42 @@ void Library::create_acc()
     
     outFile << username << "\n";
     outFile << password << "\n";
-    outFile << "User \n\n";
+    outFile << "User \n";
 
     outFile.close();
 
     cout << "\nAccount " << username << " successfully created!" << endl;
+
     menu();
 }
 
-void Library::login()
+bool Library::login()
 {
     ifstream inFile;
     string username;
     string password;
-    string read_user;   //username to read from accounts.txt
-    string read_pass;   //password to read from accounts.txt
-    string read_admin;  //checks for admin privileges
-    cin.ignore();
 
     cout << "Username: ";
     getline(cin, username);
     cout << "Password: ";
     getline(cin, password);
 
-    inFile.open(acc_file_name);
-    if (!inFile.is_open())
+    for (int i = 0; i < users.size(); i++)
     {
-      	cout << acc_file_name << " does not exist!" << endl;
-        menu();
-    } 
-
-    while (!inFile.eof())
-    {
- 	getline(inFile, read_user);
-       	getline(inFile, read_pass);
-        getline(inFile, read_admin);
-
-	//cout << "Read " << read_user << ", " << read_pass << ", " << read_admin << endl;
-
-  	if (read_user == username && read_pass == password)
+    	if (username == users.at(i)->get_username() && 
+            password == users.at(i)->get_password())
 	{
-	    cout << "\nWelcome, ";
+	    //sets current user information
+	    curr_user = new User(username, password, avail_books);
 
-	    cout << username;
- 
-            if (read_admin == "Admin")
-	    {
- 		cout << " (Admin)";
-            }
+	    /* Outputs Welcome Message */
+	    cout << "\nWelcome, " << username << "!" << endl;
 
-            cout << "!" << endl;
-
-  	    break;
-	}	
+	    return true;
+	}
     }
 
-    if (read_user != username && read_pass != password)
-    {
-	cout << "\nWrong username/password!" << endl;
-	menu();
-    }
-
-    inFile.close();
+    return false;
 }
 
 

@@ -1,11 +1,8 @@
-#ifndef __BOOKGROUP__CPP
-#define __BOOKGROUP__CPP
-
 #include "../header/BookGroup.hpp"
 #include <iostream>
 using namespace std;
 
-BookGroup::BookGroup(string group) : BookComponent() {
+BookGroup::BookGroup(string group) {
 	this->group = group;
 }
 
@@ -49,6 +46,3 @@ void BookGroup::display(ostream& out) const {
 
 
 }
-
-#endif // !__BOOKGROUP__CPP
-
