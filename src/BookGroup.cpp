@@ -7,9 +7,10 @@ BookGroup::BookGroup(string group) {
 }
 
 BookGroup::~BookGroup() {
-	for (auto& it : Book_List) {
-		BookComponent* bookcomponent = it;
-		delete bookcomponent;
+	vector<BookComponent*>::iterator pos;
+	for (pos = Book_List.begin();pos != Book_List.end();pos++) {
+		BookComponent* r = *pos;
+		delete r;
 	}
 	Book_List.clear();
 }
@@ -18,8 +19,14 @@ void BookGroup::Add(BookComponent* addbook) {
 	Book_List.push_back(addbook);
 }
 
-void BookGroup::Remove(BookComponent*) {
-
+void BookGroup::Remove(BookComponent* book ) {
+	vector<BookComponent*>::iterator pos;
+	for (pos = Book_List.begin();pos != Book_List.end();pos++) {
+		if (*pos == book) {
+			Book_List.erase(pos);
+			break;
+		}
+	}
 }
 
 void BookGroup::Reorganize_books() {
