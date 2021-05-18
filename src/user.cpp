@@ -9,13 +9,14 @@ User::User(string username, string password, BookComponent*& books)
 
 bool User::initialize()
 {
+    stringstream out;
     char choice = ' ';
  
     choice = user_menu();
     
     if (choice == '1')
     {
-	view_books();
+	view_books(out);
     }
     else  //if user enters '0'
     {
@@ -73,10 +74,8 @@ string User::get_password() const
     return password;
 }
 
-void User::view_books()
+void User::view_books(stringstream& out)
 {
-    stringstream out;
-
     cout << "\nAvailable Books: " << endl;
     avail_books->display(out);    
 
