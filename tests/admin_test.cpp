@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include "../header/admin.hpp"
 #include "../header/library.hpp"
-#include "../src/admin.cpp"
+#include "../src/admin.hpp"
 #include "../header/Book.hpp"
 #include "../header/BookComponent.hpp"
 #include "../header/BookGroup.hpp"
@@ -16,7 +16,7 @@ TEST(AdminTest, UsernameTest) {
 }
 
 TEST(UserTest, PasswordTest) {
-    Admin test = Admin("username", "password", book);
+    Admin test = Admin("username", "password");
     EXPECT_EQ(test.get_password(), "password");
 }
 

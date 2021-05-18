@@ -9,7 +9,7 @@ ADD_EXECUTABLE(library
 	src/library.cpp
 	src/user.cpp
 	src/BookGroup.cpp
-	src/admin.cpp
+	src/Admin.cpp
 )
 
 ADD_EXECUTABLE(test
