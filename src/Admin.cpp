@@ -69,7 +69,7 @@ string Admin::get_password() const
     return password;
 }
 
-void Admin::view_books()
+/*void Admin::view_books()
 {
     stringstream out;
     cout << "\nAvailable Books: " << endl;
@@ -77,3 +77,4 @@ void Admin::view_books()
 
     cout << out.str() << endl;
 }
+*/
