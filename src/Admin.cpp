@@ -25,7 +25,7 @@ bool User::initialize()
 /*char Admin::admin_menu()
 {
     char choice = ' ';
-    /* Menu Output */
+   
     cout << endl;
     cout << "========================" << endl;    
     cout << "Admin: " << this->username << endl;
@@ -36,7 +36,7 @@ bool User::initialize()
     cout << "4. View Users" << endl;
     cout << "0. Main Menu" << endl;
 
-    /* User Input */
+   
     while (choice != '1' && choice != '0')
     {
  	cin >> choice;
