@@ -1,10 +1,5 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Library System
  > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
  
  > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
@@ -15,35 +10,31 @@
  > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
  > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
  > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group.
+> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group
+
+ > Authors: Abhinav Allam(https://github.com/kineticdirt) Aung Thu Hein (https://github.com/aungthuhein13)   Daniel Ko(https://github.com/DanielKoKo)
 
 ## Project Description
- > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
- >   This project is important to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems.
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- >   C++, Git, Github.
- > * What will be the input/output of your project?
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >   * Why you picked this pattern and what feature you will implement with it
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
- > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
+ > * This project is interesting to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems we may implement in the future.
+ > * The languages/tools we plan on using include:
+ >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
+ >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
+ >   * [GoogleTest](https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
+ >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
+ > * The inputs and outputs of our project include:
+ >   * Inputs: username, password, book ISBN, book title, author, genre, and sub-genre.
+ >   * Outputs: list of books (sorted based on our search algorithms), matched book, and user/admin interfaces (screen for login, adding/deleting users, adding/deleting books, etc.).
+ > * The design patterns we'll be using:
+ >   * We’ll be using the Composite design pattern in order to compose Book objects into tree-like structures and treat Books and its composition uniformly. This way, we can represent books’ genres and subgenres as a hierarchy. We’ll implement a “BookComponent” class that will be the component of the Composite pattern, a “Book” class for a single Book that will act as the leaf of “BooksComponent”, and a  “BooksGroup” that will act as the Composite class, which is capable of editing the list of available books or a single book. A problem we anticipate encountering is creating a list of books where each book is part of a genre, but possibly also part of a subgenre. Naively implementing our library system will cause our Books class to become very unorganized and difficult to print the genres’ subgenres without some form of a tree-structure or hierarchy. This is why we believe that using the Composite design pattern is a good solution to our problem regarding Books.
+ >   * We'll be using the Strategy design pattern to implement various book search functions, such as search by ISBN, name, genre/sub-genre, and author. A problem we anticipate encountering is not being able to search books with a generalized search function. This is because we're allowing users to search with different inputs. The Strategy design pattern is a good solution to this problem because it allows us to create multiple search functions without affecting the general search result. The different search functions will take in different inputs, but will all function the same way by returning a matched book or genre.
 
- > ## Phase II
- > In addition to completing the "Class Diagram" section below, you will need to 
- > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
- >   * Backlog, TODO, In progress, In testing, Done
- >   * You can change these or add more if you'd like, but we should be able to identify at least these.
- > * There is no requirement for automation in the project board but feel free to explore those options.
- > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Create smaller development tasks as issues and assign them to team members. Place these in the `TODO` column.
- >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
- > Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
- 
+ > ![Composite pattern](https://user-images.githubusercontent.com/32584958/117906849-87e38d00-b28a-11eb-9e5b-064251f3d48b.png)
+> * The diagram above is our Composite pattern which describes the tree-like structure of our Books hierarchy. Our user/admin can point to BooksComponent and print a list of all books with their respective genres and subgenres. BooksComponent contains empty implementations for the add, remove, reorganize_books, and edit_books functions that will be overloaded by our Composite class BooksGroup. BooksComponent will also include the virtual function display that will call the display function for our leaf and composite classes in the BookComponent hierarchy by printing each genre’s books and its subgenre’s books as well. BookGroup will include the list of all books in a genre and have the ability to manipulate the list. Book is the leaf class and will be an instance of a single book with only the primitive ability to print its own information. 
+
+ > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/117914297-e6fbce80-b297-11eb-9968-ed07ab53d8ab.png)
+> * Our Strategy design pattern consists of the User/Admin object pointing to a "Context" class, which would include the vector of available books. This allows the User/Admin to search for a specific book that's already included in the list of BookComponents. The Context would create an instance of the Search interface and point to it, allowing for our User/Admin to select which strategy class to use. Our Search interface will have 4 different search algorithms inheriting from it, depending on which one the Context points to. Each algorithm would function the same way, but with variations in their inputs and slight alterations in their search algorithms.
+
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
