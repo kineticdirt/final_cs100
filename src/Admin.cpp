@@ -5,7 +5,7 @@ Admin::Admin(string username, string password)
     this->username = username;
     this->password = password;
 }
-
+/*
 bool User::initialize()
 {
     char choice = ' ';
@@ -21,11 +21,11 @@ bool User::initialize()
     
     return true;
 }
-
-char Admin::admin_menu()
+*/
+/*char Admin::admin_menu()
 {
     char choice = ' ';
-    /* Menu Output */
+   
     cout << endl;
     cout << "========================" << endl;    
     cout << "Admin: " << this->username << endl;
@@ -36,7 +36,7 @@ char Admin::admin_menu()
     cout << "4. View Users" << endl;
     cout << "0. Main Menu" << endl;
 
-    /* User Input */
+   
     while (choice != '1' && choice != '0')
     {
  	cin >> choice;
@@ -52,7 +52,7 @@ char Admin::admin_menu()
 	}
     }
 }
-
+*/
 void Admin::view_info()
 {
     cout << "\nUsername: " << get_username() << endl;
@@ -68,8 +68,11 @@ string Admin::get_password() const
 {
     return password;
 }
+
+/*void Admin::view_books()
 /*
 void Admin::view_books()
+
 {
     stringstream out;
     cout << "\nAvailable Books: " << endl;
