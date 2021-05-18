@@ -5,7 +5,7 @@ Admin::Admin(string username, string password)
     this->username = username;
     this->password = password;
 }
-
+/*
 bool User::initialize()
 {
     char choice = ' ';
@@ -21,7 +21,7 @@ bool User::initialize()
     
     return true;
 }
-
+*/
 /*char Admin::admin_menu()
 {
     char choice = ' ';
