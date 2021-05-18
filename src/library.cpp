@@ -1,5 +1,6 @@
 #include "../header/library.hpp"
 #include <limits>
+#include <sstream>
 
 Library::Library()
 {
@@ -147,7 +148,7 @@ void Library::login()
   	if (read_user == username && read_pass == password)
 	{
 	    //sets current user information
-	    curr_user = new User(username, password);
+	    curr_user = new User(username, password, avail_books);
 
 	    /* Outputs Welcome Message */
 	    cout << "\nWelcome, ";
