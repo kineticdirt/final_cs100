@@ -1,4 +1,5 @@
 #include "../header/library.hpp"
+#include <limits>
 
 Library::Library()
 {
@@ -119,9 +120,9 @@ char Library::menu()
  
     /* User Input */ 
     while (choice != '1' && choice != '2' && choice != '3')
-    {
-	cin >> choice;
-	cin.ignore(); 
+    {	
+ 	cin >> choice;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 	if (choice == '1')	
 	{
@@ -131,7 +132,7 @@ char Library::menu()
 	{
 	    return choice;
 	}
-    	else if (choice != '1')
+    	else if (choice != '1' && choice != '2' && choice != '3')
     	{
 	    cout << "Enter a valid menu option!" << endl;
     	}
@@ -155,7 +156,8 @@ void Library::create_acc()
     getline(cin, username);
     cout << "Enter a password: ";
     getline(cin, password);
-    
+   
+    //outputs new user info to user .txt file 
     outFile << username << "\n";
     outFile << password << "\n";
     outFile << "User \n";
@@ -164,9 +166,11 @@ void Library::create_acc()
 
     cout << "\nAccount " << username << " successfully created!" << endl;
 
+    //adds new user to vector containing total users
     User* new_user = new User(username, password, avail_books); 
     this->users.push_back(new_user);
-    menu();
+
+    //menu();
 }
 
 bool Library::login()
