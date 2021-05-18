@@ -16,7 +16,7 @@ TEST(AdminTest, UsernameTest) {
 }
 
 TEST(UserTest, PasswordTest) {
-    Admin test = Admin("username", "password", book);
+    Admin test = Admin("username", "password");
     EXPECT_EQ(test.get_password(), "password");
 }
 
