@@ -25,7 +25,6 @@ bool User::initialize()
 char Admin::admin_menu()
 {
     char choice = ' ';
-
     /* Menu Output */
     cout << endl;
     cout << "========================" << endl;    
@@ -33,8 +32,8 @@ char Admin::admin_menu()
     cout << "========================" << endl;
     cout << "1. View Books" << endl;
     cout << "2. Search Books" << endl;
-    cout << "3. Borrow A Book" << endl;
-    cout << "4. View Debt" << endl;
+    cout << "3. Assign book to User" << endl;
+    cout << "4. View Users" << endl;
     cout << "0. Main Menu" << endl;
 
     /* User Input */
@@ -54,7 +53,7 @@ char Admin::admin_menu()
     }
 }
 
-void Admin::view_my_info()
+void Admin::view_info()
 {
     cout << "\nUsername: " << get_username() << endl;
     cout << "Password: " << get_password() << endl;
@@ -73,7 +72,6 @@ string Admin::get_password() const
 void Admin::view_books()
 {
     stringstream out;
-
     cout << "\nAvailable Books: " << endl;
     avail_books->display(out);    
 
