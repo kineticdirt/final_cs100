@@ -14,6 +14,9 @@ Library::Library(string acc_file_name)
 void Library::initialize()
 {
     char choice;
+
+    //creates list of available books
+    read_books(); 
 	
     while (true)
     {
@@ -34,6 +37,19 @@ void Library::initialize()
 	    break;
 	}	
     }
+}
+
+//this function should read a list of books from a text file,
+//but we'll create books manually for now
+void Library::read_books()
+{       
+    BookComponent* book = new Book("Hamlet", "William Shakespeare"); 
+    BookComponent* sub_genre = new BookGroup("Romance");
+
+    sub_genre->Add(book);
+   
+    avail_books = new BookGroup("Drama"); 
+    avail_books->Add(sub_genre);
 }
 
 char Library::menu()
