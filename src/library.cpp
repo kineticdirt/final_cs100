@@ -164,6 +164,8 @@ void Library::create_acc()
 
     cout << "\nAccount " << username << " successfully created!" << endl;
 
+    User* new_user = new User(username, password, avail_books); 
+    this->users.push_back(new_user);
     menu();
 }
 
@@ -192,6 +194,8 @@ bool Library::login()
 	    return true;
 	}
     }
+
+    cout << "Wrong Username/Password!" << endl;
 
     return false;
 }
