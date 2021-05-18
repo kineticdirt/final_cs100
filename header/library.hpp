@@ -23,6 +23,7 @@ class Library
         	
     public:
 	Library();
+	~Library();
 	Library(string);
 	void initialize();      //initializes library system
 	void read_books();      //reads in available books from .txt file

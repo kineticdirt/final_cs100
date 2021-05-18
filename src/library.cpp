@@ -10,6 +10,27 @@ Library::Library(string acc_file_name)
     this->acc_file_name = acc_file_name;
 }
 
+Library::~Library()
+{
+    if (curr_user != nullptr)
+    {
+ 	delete curr_user; 
+    }
+
+    for (auto& i : users)
+    {
+	User* delete_user = i;
+ 	delete delete_user;
+    }
+
+    users.clear();
+
+    if (avail_books != nullptr)
+    {
+	delete avail_books;
+    }
+}
+
 void Library::initialize()
 {
     char choice;
@@ -19,11 +40,6 @@ void Library::initialize()
 
     //creates list of users
     read_users();
-
-    /*
-    for (int i = 0; i < users.size(); i++)
-	cout << "User " << i << ": " << users.at(i)->get_username() << ", " << users.at(i)->get_password() << endl;
-    */
 
     while (true)
     {
@@ -61,6 +77,12 @@ void Library::read_books()
 
     avail_books->Add(book3);
     avail_books->Add(sub_genre);
+
+    /*
+    delete book1;
+    delete book2;
+    delete book3;
+    */
 }
 
 void Library::read_users()
@@ -156,11 +178,6 @@ bool Library::login()
     ifstream inFile;
     string username;
     string password;
-    /*
-    string read_user;   //username to read from accounts.txt
-    string read_pass;   //password to read from accounts.txt
-    string read_admin;  //checks for admin privileges
-    */
 
     cout << "Username: ";
     getline(cin, username);
