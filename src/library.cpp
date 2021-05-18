@@ -1,5 +1,4 @@
 #include "../header/library.hpp"
-#include <limits>
 
 Library::Library()
 {
@@ -122,7 +121,7 @@ char Library::menu()
     while (choice != '1' && choice != '2' && choice != '3')
     {	
  	cin >> choice;
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 	if (choice == '1')	
 	{
@@ -169,8 +168,6 @@ void Library::create_acc()
     //adds new user to vector containing total users
     User* new_user = new User(username, password, avail_books); 
     this->users.push_back(new_user);
-
-    //menu();
 }
 
 bool Library::login()

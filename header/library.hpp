@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <limits>
 
 #include "user.hpp"
 #include "BookGroup.hpp"
