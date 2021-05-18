@@ -22,7 +22,7 @@ bool User::initialize()
     return true;
 }
 
-char Admin::admin_menu()
+/*char Admin::admin_menu()
 {
     char choice = ' ';
     /* Menu Output */
@@ -52,7 +52,7 @@ char Admin::admin_menu()
 	}
     }
 }
-
+*/
 void Admin::view_info()
 {
     cout << "\nUsername: " << get_username() << endl;
