@@ -21,8 +21,14 @@ void BookGroup::Add(BookComponent* addbook) {
 	Book_List.push_back(addbook);
 }
 
-void BookGroup::Remove(BookComponent*) {
-
+void BookGroup::Remove(BookComponent* book) {
+    for (auto& it : Book_List) {
+        BookComponent* bookcomponent = it;
+        if (bookcomponent == book) {
+            Book_List.erase(bookcomponent);
+            break;
+        }
+    }
 }
 
 void BookGroup::Reorganize_books() {
