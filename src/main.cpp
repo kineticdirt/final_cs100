@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])
 {
     Library test;
-    test.menu();
+    test.initialize();
 
     return 0;
 }
