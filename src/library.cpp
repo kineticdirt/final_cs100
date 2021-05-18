@@ -77,12 +77,6 @@ void Library::read_books()
 
     avail_books->Add(book3);
     avail_books->Add(sub_genre);
-
-    /*
-    delete book1;
-    delete book2;
-    delete book3;
-    */
 }
 
 void Library::read_users()
