@@ -43,5 +43,18 @@ TEST(BookTest,Sub_Genre_Test){
 	EXPECT_EQ(out.str(),"Book Group: Drama\n\n\tBook Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n\n");
 }
 
+TEST(BookTest,Remove_Test){
+	stringstream out;
+	BookComponent* book_1 = new Book("Hamlet","William Shakespeare");
+	BookComponent* book_2 = new Book("Romeo and Juliet","William Shakespeart");
+	BookComponent* sub_genre = new BookGroup("love");
+	sub_genre->Add(book_1);
+	sub_genre->Add(book_2);
+	sub_genre->Remove(book_2);
+	BookComponent* test = new BookGroup("Drama"); 
+	test->Add(sub_genre); 
+	test->display(out);
+	EXPECT_EQ(out.str(),"Book Group: Drama\n\n\tBook Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n\n");
+}
 
 #endif
