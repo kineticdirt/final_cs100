@@ -25,7 +25,7 @@ class Library
 	void read_books();      //reads in available books from .txt file
 	char menu();            //prints library interface menu 
         void create_acc();      //creates a new account
-	void login();           //user or admin login
+	bool login();           //user or admin login
 };
 
 #endif //__LIBRARY_HPP__

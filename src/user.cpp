@@ -1,10 +1,5 @@
 #include "../header/user.hpp"
 
-User::User()
-{
-
-}
-
 User::User(string username, string password, BookComponent*& books)
 {
     this->username = username;
@@ -60,6 +55,22 @@ char User::user_menu()
 	    cin.clear();
 	}
     }
+}
+
+void User::view_my_info()
+{
+    cout << "\nUsername: " << get_username() << endl;
+    cout << "Password: " << get_password() << endl;
+}
+
+string User::get_username() const 
+{
+    return username;
+}
+
+string User::get_password() const
+{
+    return password;
 }
 
 void User::view_books()

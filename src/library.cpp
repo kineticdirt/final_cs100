@@ -25,8 +25,7 @@ void Library::initialize()
   	
         if (choice == '2')
 	{
-	    login();
-	    if (curr_user != nullptr)
+	    if (login())
 	    {
 		//loops user interface until user logs out
 		while (curr_user->initialize()) { }
@@ -44,12 +43,17 @@ void Library::initialize()
 //but we'll create books manually for now
 void Library::read_books()
 {       
-    BookComponent* book = new Book("Hamlet", "William Shakespeare"); 
+    BookComponent* book1 = new Book("Hamlet", "William Shakespeare"); 
+    BookComponent* book2 = new Book("Twilight" , "Stephanie Myers");
+    BookComponent* book3 = new Book("The Crucible", "Arthur Miller");
     BookComponent* sub_genre = new BookGroup("Romance");
 
-    sub_genre->Add(book);
+    sub_genre->Add(book1);
+    sub_genre->Add(book2);
    
     avail_books = new BookGroup("Drama"); 
+
+    avail_books->Add(book3);
     avail_books->Add(sub_genre);
 }
 
@@ -116,7 +120,7 @@ void Library::create_acc()
     menu();
 }
 
-void Library::login()
+bool Library::login()
 {
     ifstream inFile;
     string username;
@@ -134,7 +138,7 @@ void Library::login()
     if (!inFile.is_open())
     {
       	cout << acc_file_name << " does not exist!" << endl;
-	return;
+	return false;
     } 
 
     while (!inFile.eof())
@@ -169,9 +173,12 @@ void Library::login()
     if (read_user != username && read_pass != password)
     {
 	cout << "\nWrong username/password!" << endl;
+	return false;
     }
 
     inFile.close();
+
+    return true;
 }
 
 
