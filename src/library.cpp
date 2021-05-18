@@ -1,5 +1,4 @@
 #include "../header/library.hpp"
-#include <limits>
 
 Library::Library()
 {
