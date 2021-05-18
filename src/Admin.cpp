@@ -1,44 +1,39 @@
-#include "../header/user.hpp"
+#include "../header/Admin.hpp"
 
-User::User(string username, string password, BookComponent*& books)
+Admin::Admin(string username, string password)
 {
     this->username = username;
     this->password = password;
-    this->avail_books = books;
 }
 
 bool User::initialize()
 {
-    stringstream out;
     char choice = ' ';
- 
     choice = user_menu();
-    
     if (choice == '1')
     {
-	view_books(out);
+	    view_books();
     }
     else  //if user enters '0'
     {
-	return false;
+	    return false;
     }
     
     return true;
 }
 
-char User::user_menu()
+char Admin::admin_menu()
 {
     char choice = ' ';
-
     /* Menu Output */
     cout << endl;
     cout << "========================" << endl;    
-    cout << "User: " << this->username << endl;
+    cout << "Admin: " << this->username << endl;
     cout << "========================" << endl;
     cout << "1. View Books" << endl;
     cout << "2. Search Books" << endl;
-    cout << "3. Borrow A Book" << endl;
-    cout << "4. View Debt" << endl;
+    cout << "3. Assign book to User" << endl;
+    cout << "4. View Users" << endl;
     cout << "0. Main Menu" << endl;
 
     /* User Input */
@@ -58,41 +53,27 @@ char User::user_menu()
     }
 }
 
-void User::view_my_info()
+void Admin::view_info()
 {
     cout << "\nUsername: " << get_username() << endl;
     cout << "Password: " << get_password() << endl;
 }
 
-string User::get_username() const 
+string Admin::get_username() const 
 {
     return username;
 }
 
-string User::get_password() const
+string Admin::get_password() const
 {
     return password;
 }
 
-void User::view_books(stringstream& out)
+void Admin::view_books()
 {
+    stringstream out;
     cout << "\nAvailable Books: " << endl;
     avail_books->display(out);    
 
     cout << out.str() << endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

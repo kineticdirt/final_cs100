@@ -24,9 +24,8 @@ void BookGroup::Remove(BookComponent* book ) {
 	for (pos = Book_List.begin();pos != Book_List.end();pos++) {
 		if (*pos == book) {
 			Book_List.erase(pos);
-			break;
-		}
-	}
+   			break;
+    }
 }
 
 void BookGroup::Reorganize_books() {
