@@ -1,4 +1,4 @@
-#include "../header/Admin.hpp"
+#include "../header/admin.hpp"
 
 Admin::Admin(string username, string password)
 {
