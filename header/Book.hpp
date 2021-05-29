@@ -14,10 +14,11 @@ private:
 	string genre;
 
 public:
-	Book(string name, string author,string isbn,string subgenre){
+	Book(string name, string author,string isbn,string genre,string subgenre){
 		this->name = name;
 		this->author = author;
 		this->isbn = isbn;		
+		this->genre = genre;
 		this->subgenre = subgenre;
 	}
 
