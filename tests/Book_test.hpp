@@ -29,6 +29,4 @@ TEST(BookTest,genreTest){
 		Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
 		EXPECT_EQ(test->getsubgenre(),"Drama");
 }
-
-
 #endif
