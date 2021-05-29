@@ -3,58 +3,32 @@
 
 #include "gtest/gtest.h"
 #include "../header/Book.hpp"
-#include "../header/BookComponent.hpp"
-#include "../header/BookGroup.hpp"
-#include "../src/BookGroup.cpp"
 #include <iostream>
 using namespace std;
 
-TEST(BookTest,ConstructorTest){
+TEST(BookTest,NameTest){
 	stringstream out;
-	Book* test = new Book("Hamlet","William Shakespeare");
-	test->display(out);
-	EXPECT_EQ(out.str(),"	Book: Hamlet by William Shakespeare\n");
+	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+	EXPECT_EQ(test->getname(),"Hamlet");
 }
 
-TEST(BookTest,ConstructorTest_2){
+TEST(BookTest,AutjorTest){
 	stringstream out;
-	BookGroup* test = new BookGroup("love");
-	test->display(out);
-	EXPECT_EQ(out.str(),"Book Group: love\n\n");
+	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+	EXPECT_EQ(test->getauthor(),"William Shakespeare");
 }
 
-TEST(BookTest,GenreTest){
+TEST(BookTest,isbnTest){
 	stringstream out;
-	BookComponent* book = new Book("Hamlet","William Shakespeare");
-	BookComponent* test = new BookGroup("love");
-	test->Add(book); 
-	test->display(out);
-	EXPECT_EQ(out.str(),"Book Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n");
+	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+	EXPECT_EQ(test->getIsbn(),"11041");
 }
 
-TEST(BookTest,Sub_Genre_Test){
+TEST(BookTest,genreTest){
 	stringstream out;
-	BookComponent* book = new Book("Hamlet","William Shakespeare");
-	BookComponent* sub_genre = new BookGroup("love");
-	sub_genre->Add(book);
-	BookComponent* test = new BookGroup("Drama"); 
-	test->Add(sub_genre); 
-	test->display(out);
-	EXPECT_EQ(out.str(),"Book Group: Drama\n\n\tBook Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n\n");
+	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+	EXPECT_EQ(test->getsubgenre(),"Drama");
 }
 
-TEST(BookTest,Remove_Test){
-	stringstream out;
-	BookComponent* book_1 = new Book("Hamlet","William Shakespeare");
-	BookComponent* book_2 = new Book("Romeo and Juliet","William Shakespeart");
-	BookComponent* sub_genre = new BookGroup("love");
-	sub_genre->Add(book_1);
-	sub_genre->Add(book_2);
-	sub_genre->Remove(book_2);
-	BookComponent* test = new BookGroup("Drama"); 
-	test->Add(sub_genre); 
-	test->display(out);
-	EXPECT_EQ(out.str(),"Book Group: Drama\n\n\tBook Group: love\n\n\t\tBook: Hamlet by William Shakespeare\n\n\n");
-}
 
 #endif
