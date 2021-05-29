@@ -22,16 +22,17 @@ class Library
 	User* curr_user = nullptr;    //current user logged in
         vector<User*> users;          //stores all users
 	BookComponent* avail_books = nullptr;
-	Catalog* catalog = nullptr;
+
+    protected:
+	Catalog* catalog = nullptr;  //protected so the user/admin can access
         	
     public:
 	Library();
 	~Library();
 	Library(string);
 	void initialize();      //initializes library system
-	void read_books();      //reads in available books from .txt file
        	void read_users();      //reads in users from .txt file
-	void init_catalog();
+	void init_catalog();    //Initializes single Catalog object
 	char menu();            //prints library interface menu 
         void create_acc();      //creates a new account
 	bool login();           //user or admin login

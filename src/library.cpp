@@ -37,7 +37,7 @@ void Library::initialize()
     char choice;
 
     //creates list of available books
-    read_books(); 
+    //read_books(); 
 
     //creates list of users
     read_users();
@@ -63,24 +63,6 @@ void Library::initialize()
 	    break;
 	}	
     }
-}
-
-//this function should read a list of books from a text file,
-//but we'll create books manually for now
-void Library::read_books()
-{       
-    BookComponent* book1 = new Book("Hamlet", "William Shakespeare"); 
-    BookComponent* book2 = new Book("Twilight" , "Stephanie Myers");
-    BookComponent* book3 = new Book("The Crucible", "Arthur Miller");
-    BookComponent* sub_genre = new BookGroup("Romance");
-
-    sub_genre->Add(book1);
-    sub_genre->Add(book2);
-   
-    avail_books = new BookGroup("Drama"); 
-
-    avail_books->Add(book3);
-    avail_books->Add(sub_genre);
 }
 
 void Library::read_users()
