@@ -26,8 +26,13 @@ public:
 	string getIsbn() const { return isbn; }	
 	string getauthor() const { return author; }
 	string getsubgenre() const { return subgenre; }
+<<<<<<< HEAD
+	void display() const {
+		cout << "Book: " << name << " by " << author << endl;
+=======
 	void display(ostream& out) const {
 		out << "Book: " << name << " by " << author << endl;
+>>>>>>> master
 	}
 };
 

@@ -7,28 +7,26 @@
 using namespace std;
 
 TEST(BookTest,NameTest){
-	stringstream out;
-	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
-	EXPECT_EQ(test->getname(),"Hamlet");
+		stringstream out;
+		Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+		EXPECT_EQ(test->getname(),"Hamlet");
 }
 
 TEST(BookTest,AutjorTest){
-	stringstream out;
-	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
-	EXPECT_EQ(test->getauthor(),"William Shakespeare");
+		stringstream out;
+		Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+		EXPECT_EQ(test->getauthor(),"William Shakespeare");
 }
 
 TEST(BookTest,isbnTest){
-	stringstream out;
-	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
-	EXPECT_EQ(test->getIsbn(),"11041");
+		stringstream out;
+		Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+		EXPECT_EQ(test->getIsbn(),"11041");
 }
 
 TEST(BookTest,genreTest){
-	stringstream out;
-	Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
-	EXPECT_EQ(test->getsubgenre(),"Drama");
+		stringstream out;
+		Book* test = new Book("Hamlet","William Shakespeare","11041","Drama");
+		EXPECT_EQ(test->getsubgenre(),"Drama");
 }
-
-
 #endif
