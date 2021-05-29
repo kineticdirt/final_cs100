@@ -11,6 +11,7 @@ private:
 	string author;
 	string isbn;
 	string subgenre;
+	string genre;
 
 public:
 	Book(string name, string author,string isbn,string subgenre){
@@ -26,13 +27,13 @@ public:
 	string getIsbn() const { return isbn; }	
 	string getauthor() const { return author; }
 	string getsubgenre() const { return subgenre; }
-<<<<<<< HEAD
+	string getgenre() const { return genre; }
+
 	void display() const {
 		cout << "Book: " << name << " by " << author << endl;
-=======
+	}
 	void display(ostream& out) const {
 		out << "Book: " << name << " by " << author << endl;
->>>>>>> master
 	}
 };
 
