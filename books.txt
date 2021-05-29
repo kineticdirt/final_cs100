@@ -1,0 +1,40 @@
+The Great Gatsby
+F. Scott Fitzgerald
+0
+Novel
+Fiction
+The Lord of the Rings
+J.R.R. Tolkien
+5
+Novel
+Fantasy
+Entertainment Weekly April 2020
+None
+10
+Magazine
+Non-Fiction
+National Geographic September 2020
+None
+15
+Magazine
+Educational
+V for Vendetta
+Alan Moore
+20
+Comic Book
+Science Fiction
+East of West
+Jonathan Hickman
+25
+Comic Book
+Science Fiction
+The Raven
+Edgar Allan Poe
+30
+Poem
+Horror
+Stopping by Woods on a Snowy Evening
+Robert Frost
+35
+Poem 
+Non-Fiction
