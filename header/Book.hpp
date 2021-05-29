@@ -2,29 +2,38 @@
 #define __BOOK__HPP___
 
 #include <string>
-#include "BookComponent.hpp"
-#include <iostream>
+
 using namespace std;
 
-class Book : public BookComponent{
-private:
+class Book {
+private:  
 	string name;
 	string author;
+	string isbn;
+	string subgenre;
+	string genre;
 
 public:
-	Book(string name, string author) : BookComponent() {
+	Book(string name, string author,string isbn,string subgenre){
 		this->name = name;
 		this->author = author;
+		this->isbn = isbn;		
+		this->subgenre = subgenre;
 	}
 
 	~Book() {};
 
 	string getname() const { return name; }
-
+	string getIsbn() const { return isbn; }	
 	string getauthor() const { return author; }
+	string getsubgenre() const { return subgenre; }
+	string getgenre() const { return genre; }
 
+	void display() const {
+		cout << "Book: " << name << " by " << author << endl;
+	}
 	void display(ostream& out) const {
-		out << "\t" << "Book: " << name << " by " << author << endl;
+		out << "Book: " << name << " by " << author << endl;
 	}
 };
 
