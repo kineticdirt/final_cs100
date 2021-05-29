@@ -1,4 +1,5 @@
 #include "../header/library.hpp"
+#include "../header/Catalog.hpp"
 
 Library::Library()
 {
@@ -40,6 +41,9 @@ void Library::initialize()
 
     //creates list of users
     read_users();
+
+    //initializes Catalog object
+    init_catalog();
 
     while (true)
     {
@@ -102,6 +106,11 @@ void Library::read_users()
 	User* new_user = new User(username, password, avail_books);
 	this->users.push_back(new_user);
     }
+}
+
+void Library::init_catalog()
+{
+    this->catalog = catalog->get_instance();
 }
 
 char Library::menu()
