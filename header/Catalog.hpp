@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <cstdio>
 #include "Book.hpp"
 using namespace std;
 
@@ -60,10 +61,11 @@ protected:
         }
 
         static void output_to_books(Book* new_book) {
-            ofstream bookList;
+            ofstream bookList("writing_books.txt");
             int ISBN_Line = std::stoi(new_book.getIsbn());
             ISBN_Line = ISBN_Line * 5;
             bookList.open ("books.txt");
+	
             if(!bookList.is_open()){
                 cout << "File opening error!" << endl;
             }
