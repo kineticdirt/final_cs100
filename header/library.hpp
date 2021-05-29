@@ -11,6 +11,7 @@
 #include "BookGroup.hpp"
 #include "BookComponent.hpp"
 #include "Book.hpp"
+#include "Catalog.hpp"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ class Library
 	User* curr_user = nullptr;    //current user logged in
         vector<User*> users;          //stores all users
 	BookComponent* avail_books = nullptr;
+	Catalog* catalog = nullptr;
         	
     public:
 	Library();
@@ -29,6 +31,7 @@ class Library
 	void initialize();      //initializes library system
 	void read_books();      //reads in available books from .txt file
        	void read_users();      //reads in users from .txt file
+	void init_catalog();
 	char menu();            //prints library interface menu 
         void create_acc();      //creates a new account
 	bool login();           //user or admin login
