@@ -1,8 +1,12 @@
 admin123
 adminpass123
 0
-Admin
+User
 user123
 pass123
-15
-User 
+20
+User
+daniel
+danielPass
+10
+User

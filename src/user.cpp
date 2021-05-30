@@ -20,6 +20,10 @@ bool User::initialize()
     {
 	view_books();
     }
+    else if (choice == '3')
+    {
+	borrow_a_book();
+    }
     else if (choice == '4')
     {
 	view_debt();
@@ -43,7 +47,8 @@ bool User::initialize()
 void User::initialize_borrowed()
 {
     ifstream inFile;
-    string temp;
+    string word;
+    string title;
 
     inFile.open("borrowed_books.txt");
     if (!inFile.is_open())
@@ -51,26 +56,14 @@ void User::initialize_borrowed()
 	cout << "borrowed_books.txt" << " does not exist!" << endl;
     } 
 
-    while (getline(inFile, temp))
+    while (inFile >> word)
     {
-	//reads and ignores the first "begin" string
-	if (temp == "begin")
+	//reads in book title
+	if (word == this->username)
 	{
-	    getline(inFile, temp);
+	    getline(inFile, title); 
+	    borrowed.push_back(title);
 	}
-
-	if (temp == this->username)
-	{
-	    //gets the first book and ignores username
-	    getline(inFile, temp);
-
-	    //adds user's borrowed books to vector of borrowed books
-	    while (temp != "end")
-	    {
-		borrowed.push_back(temp);
-		getline(inFile, temp);
-	    }
-	}	
     }
 }
 
@@ -95,7 +88,7 @@ char User::user_menu()
     {
  	cin >> choice;
 
-	if (choice == '1' || choice == '0' || choice == '4' || choice == '5')
+	if (choice == '1' || choice == '0' || choice == '3' || choice == '4' || choice == '5')
 	{
 	    return choice;
 	}
@@ -166,6 +159,32 @@ void User::view_borrowed()
 	cout << "\t" << borrowed.at(i) << endl;
     } 
     cout << endl;
+}
+
+void User::borrow_a_book()
+{
+    string book;
+    cin.ignore(256, '\n');
+
+    cout << "Enter title of book to borrow: ";
+    getline(cin, book);
+
+    borrowed.push_back(book); 
+    debt += 5; 
+    update_book_file();
+
+    cout << "New book added to debt." << endl << endl;
+}
+
+void User::update_book_file()
+{
+    ofstream outFile;
+    outFile.open("borrowed_books.txt", std::ios::app);
+
+    //outputs newest borrowed book to outFile
+    outFile << this->username << " " << borrowed.back() << endl;
+
+    outFile.close();
 }
 
 

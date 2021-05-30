@@ -30,15 +30,15 @@ Library::~Library()
 void Library::initialize()
 {
     char choice;
-
-    //creates list of available books
-    //read_books(); 
     
     //initializes Catalog object
     init_catalog();
 
     //creates list of users
     read_users();
+
+    //reads books available in Catalog
+    catalog->read_books();
 
     while (true)
     {
@@ -50,6 +50,18 @@ void Library::initialize()
 	    {
 		//loops user interface until user logs out
 		while (curr_user->initialize()) { }
+
+		update_users();
+
+		//clears users
+		for (auto& i : users)
+    		{
+        	    User* delete_user = i;
+        	    delete delete_user;
+    		}
+    		users.clear();
+
+		read_users();
 	    }
 	}
         else if (choice == '3')
@@ -82,12 +94,6 @@ void Library::read_users()
 	getline(inFile, temp);
 	debt = temp;
 	getline(inFile, temp);
-
-        /*
-        cout << "Username: " << username << endl;
-   	cout << "Password: " << password << endl;
-	cout << "Debt: " << debt << endl;
-	*/
 
 	User* new_user = new User(username, password, stoi(debt), catalog);
 	this->users.push_back(new_user);
@@ -165,6 +171,45 @@ void Library::create_acc()
     //adds new user to vector containing total users
     User* new_user = new User(username, password, stoi(debt), catalog); 
     this->users.push_back(new_user);
+}
+
+void Library::update_users()
+{
+    ofstream outFile;  //outputs to accounts.txt
+    ifstream books;    //reads from borrowed_books.txt
+    string username;   //username to check 
+    string title;      //book title to read from books
+    
+    int debt_cnt;
+    books.open("borrowed_books.txt");
+    outFile.open("accounts.txt");
+ 
+    //counts each user's debt total 
+    for (int i = 0; i < users.size(); i++)	
+    {
+	debt_cnt = 0;
+	books.open("borrowed_books.txt");
+	
+	outFile << users.at(i)->get_username() << endl;
+	outFile << users.at(i)->get_password() << endl;
+
+	while (books >> username)
+	{
+	    //adds 5 to current user's total debt if it's a match
+	    if (users.at(i)->get_username() == username)
+	    {
+	 	debt_cnt += 5;
+	    }
+
+  	    //reads and ignores book title	
+	    getline(books, title);
+	}
+
+        outFile << to_string(debt_cnt) << endl; 
+	outFile << "User" << endl;
+
+  	books.close(); 
+    }
 }
 
 bool Library::login()
