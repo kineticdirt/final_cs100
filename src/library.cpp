@@ -33,12 +33,12 @@ void Library::initialize()
 
     //creates list of available books
     //read_books(); 
+    
+    //initializes Catalog object
+    init_catalog();
 
     //creates list of users
     read_users();
-
-    //initializes Catalog object
-    init_catalog();
 
     while (true)
     {
@@ -89,7 +89,7 @@ void Library::read_users()
 	cout << "Debt: " << debt << endl;
 	*/
 
-	User* new_user = new User(username, password, stoi(debt));
+	User* new_user = new User(username, password, stoi(debt), catalog);
 	this->users.push_back(new_user);
     }
 }
@@ -163,7 +163,7 @@ void Library::create_acc()
     cout << "\nAccount " << username << " successfully created!" << endl;
 
     //adds new user to vector containing total users
-    User* new_user = new User(username, password, stoi(debt)); 
+    User* new_user = new User(username, password, stoi(debt), catalog); 
     this->users.push_back(new_user);
 }
 
@@ -184,7 +184,7 @@ bool Library::login()
             password == users.at(i)->get_password())
 	{
 	    //sets current user information
-	    curr_user = new User(username, password, users.at(i)->get_debt());
+	    curr_user = new User(username, password, users.at(i)->get_debt(), catalog);
 
 	    /* Outputs Welcome Message */
 	    cout << "\nWelcome, " << username << "!" << endl;
