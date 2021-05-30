@@ -30,9 +30,7 @@ public:
 	string getsubgenre() const { return subgenre; }
 	string getgenre() const { return genre; }
 
-	void display() const {
-		cout << "Book: " << name << " by " << author << endl;
-	}
+	
 	void display(ostream& out) const {
 		out << "Book: " << name << " by " << author << endl;
 	}

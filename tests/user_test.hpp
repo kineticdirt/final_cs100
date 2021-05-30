@@ -6,8 +6,7 @@
 #include "../header/library.hpp"
 #include "../src/user.cpp"
 #include "../header/Book.hpp"
-#include "../header/BookComponent.hpp"
-#include "../header/BookGroup.hpp"
+
 
 TEST(UserTest, UsernameTest) {
     BookComponent* book = new Book("TestBook", "Test Author");
