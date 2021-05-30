@@ -1,10 +1,6 @@
 #include "../header/admin.hpp"
 
-Admin::Admin(string username, string password)
-{
-    this->username = username;
-    this->password = password;
-}
+Admin::Admin(string username, string password) : User(username, password){}
 /*
 bool User::initialize()
 {
