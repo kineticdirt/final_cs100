@@ -15,49 +15,57 @@ protected:
     static vector<Book*> comicBook;
     static vector<Book*> poem;
     static vector<Book*> novel;
+	Display* display;
+    Catalog();
     static Catalog* instance;
     public:
-        static void read_books() {
-            ifstream bookList;
-            Book* book;           //Book object to instantiate from books.txt
-            string title;
-            string author;
-            string isbn;
-            string genre;
-            string subgenre;
-            string temp;          //line to be read from books.txt
+			void set_display(Display* new_display);
+        void print(ostream& out) const;
+        	static void read_books() {
+				ifstream bookList;
+				Book* book;           //Book object to instantiate from books.txt
+				string title;
+				string author;
+				string isbn;
+				string genre;
+				string subgenre;
+				string temp;          //line to be read from books.txt
 
-            bookList.open("books.txt");
-            if(!bookList.is_open()) {
-                cout << "File opening error!" << endl;
+				bookList.open("books.txt");
+				if(!bookList.is_open()) {
+					cout << "File opening error!" << endl;
+				}
+
+				while (getline(bookList, temp)) {
+					//reads a book's information
+					title = temp;
+					getline(bookList, temp);
+					author = temp;
+					getline(bookList, temp);
+					isbn = temp;
+					getline(bookList, temp);
+					genre = temp;
+					getline(bookList, temp);
+					subgenre = temp;
+
+					//instantiates book 
+					book = new Book(title, author, isbn, genre, subgenre);
+
+					//adds books to their respective vector of genre
+					if (genre == "Novel")
+						novel.push_back(book);
+					else if (genre == "Magazine")
+						magazine.push_back(book);
+					else if (genre == "Comic Book")
+						comicBook.push_back(book);
+					else if (genre == "Poem")
+						poem.push_back(book);
             }
-            
-            while (getline(bookList, temp)) {
-                //reads a book's information
-                title = temp;
-                getline(bookList, temp);
-                author = temp;
-                getline(bookList, temp);
-                isbn = temp;
-                getline(bookList, temp);
-                genre = temp;
-                getline(bookList, temp);
-                subgenre = temp;
-
-                //instantiates book 
-                book = new Book(title, author, isbn, genre, subgenre);
-
-                //adds books to their respective vector of genre
-                if (genre == "Novel")
-                    novel.push_back(book);
-                else if (genre == "Magazine")
-                    magazine.push_back(book);
-                else if (genre == "Comic Book")
-                    comicBook.push_back(book);
-                else if (genre == "Poem")
-                    poem.push_back(book);
-            }
-
+			bookList.close(); 
+            books.push_back(novel);
+            books.push_back(magazine);
+            books.push_back(comicBook);
+            books.push_back(poem);
         }
 
         static void add_to_books(Book* new_book, bool overwriteCondition) {
