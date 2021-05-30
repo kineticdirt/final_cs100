@@ -10,17 +10,15 @@ private:
 	string title;
 public:
 	Display_Title(const string& title) : title(title) {}
-	void display(vector<vector<Book*>> books,ostream& out) {
+	void display(vector<Book*> books,ostream& out) {
 		out << "Title: " << title << endl << endl;
-		for (int i = 0; i < books.size();i++) {
-			for (int j = 0;j < books[i].size();j++) {
-				string str1 = books[i][j]->getname();
+			for (int i=0;i < books.size();i++) {
+				string str1 = books[i]->getname();
 				string str2 = title;
 				bool result = iequals(str1, str2);
 				if (result) {
-					books[i][j]->display(out);
+					books[i]->display(out);
 				}
-			}
 		}
 	}
 };

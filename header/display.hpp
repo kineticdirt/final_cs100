@@ -10,7 +10,7 @@ using namespace std;
 class Display {
 public:
 	virtual ~Display() = default;
-	virtual void display(vector<vector<Book*>> books,ostream& out) = 0;
+	virtual void display(vector<Book*> books,ostream& out) = 0;
 
 	
     bool iequals(const string& a, const string& b)

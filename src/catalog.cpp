@@ -7,10 +7,14 @@ Catalog::Catalog() {
 }
 
 Catalog::~Catalog() {
+	vector<Book*>::iterator pos;
+	for (pos = books.begin();pos != books.end(); ++pos) {
+		Book* book = *pos;
+		delete book;
+	}
+	books.clear();
 	delete display;
 }
-
-Catalog* Catalog::instance = 0;
 
 void Catalog::set_display(Display* new_display) {
 	delete display;

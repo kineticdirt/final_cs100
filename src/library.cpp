@@ -96,7 +96,7 @@ void Library::read_users()
 
 void Library::init_catalog()
 {
-    this->catalog = catalog->getInstance();
+   // this->catalog = catalog->getInstance();
 }
 
 char Library::menu()
