@@ -14,13 +14,11 @@ class Admin : public User
 	
     public:
 	Admin(string, string);
-	//bool initialize();     //handles running user class until user logs out
-	//char user_menu();      //prints available admin menu
-        void view_user_info();   //view current user information
-        void view_info();      //view username & password
-	//void view_books();     //view a list of available books
-	string get_username() const; 
-	string get_password() const;
+	bool initialize();              //handles running admin class until user logs out
+	char admin_menu();               //prints available user menus              
+	void view_borrowed();           //view a list of borrowed books
+	void update_book_file();        //updates borrowed books .txt file if user borrows a new book
+        void borrow_user_book();        
 };
 
 #endif //__ADMIN_HPP__
