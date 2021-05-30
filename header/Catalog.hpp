@@ -86,18 +86,18 @@ class Catalog {
 			//indexing throughout the file
 			string line = "";
             	while (index != ISBN_Line) {
-                	getline(booklist, line, '\n');
+                	getline(bookList, line, '\n');
 			writingBooks << line << '\n';
 			index++; 
 			}
 		for(int i = 0; i < 5; i++){
-			writingBooks << new_Book->getname() << '\n';
-			writingBooks << new_Book->gettitle() << '\n';
-			writingBooks << new_Book->getIsbn() << '\n';
-			writingBooks << new_Book->getgenre() << '\n';
-			writingBooks << new_Book->getsubgenre() << '\n';
+			writingBooks << new_book->getname() << '\n';
+			writingBooks << new_book->gettitle() << '\n';
+			writingBooks << new_book->getIsbn() << '\n';
+			writingBooks << new_book->getgenre() << '\n';
+			writingBooks << new_book->getsubgenre() << '\n';
 		}
-		while (!booklist.eof) {
+		while (!bookList.eof) {
                 	getline(bookList, line, '\n');
 			writingBooks << line << '\n';
 		} 
