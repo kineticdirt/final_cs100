@@ -1,10 +1,9 @@
 #include "../header/user.hpp"
 
-User::User(string username, string password, BookComponent*& books)
+User::User(string username, string password)
 {
     this->username = username;
     this->password = password;
-    this->avail_books = books;
 }
 
 bool User::initialize()
@@ -74,12 +73,9 @@ string User::get_password() const
     return password;
 }
 
-void User::view_books(stringstream& out)
+void User::view_books()
 {
     cout << "\nAvailable Books: " << endl;
-    avail_books->display(out);    
-
-    cout << out.str() << endl;
 }
 
 
