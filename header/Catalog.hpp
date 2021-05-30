@@ -80,30 +80,30 @@ protected:
             	}
             	int index = 0;
 				//indexing throughout the file
-				char *line = "";
+				string* line = "";
             	while (index != ISBN_Line) {
-                	bookList.getline(line, 100, '\n');
-					writingBooks << line << '\n';
-					index++; 
-				}
-				for(int i = 0; i < 5; i++){
-					writing << new_Book->getname() << '\n';
-					writing << new_Book->gettitle() << '\n';
-					writing << new_Book->getIsbn() << '\n';
-					writing << new_Book->getgenre() << '\n';
-					writing << new_Book->getsubgenre() << '\n';
-				}
-				while (!booklist.eof) {
-                	bookList.getline(line, 100, '\n');
-					writingBooks << line << '\n';
-				} 
-				booklist.close();
-				writingBooks.close();
-				if(remove("books.txt") != 0){
-					rename("writing_books.txt" , "books.txt");	
-				} else {
-					cout << "Failed to create book.txt"
-				}
+                	getline(booklist, line, '\n');
+			writingBooks << line << '\n';
+			index++; 
+			}
+		for(int i = 0; i < 5; i++){
+			writing << new_Book->getname() << '\n';
+			writing << new_Book->gettitle() << '\n';
+			writing << new_Book->getIsbn() << '\n';
+			writing << new_Book->getgenre() << '\n';
+			writing << new_Book->getsubgenre() << '\n';
+		}
+		while (!booklist.eof) {
+                	getline(booklist, line, '\n');
+			writingBooks << line << '\n';
+		} 
+		booklist.close();
+		writingBooks.close();
+		if(remove("books.txt") != 0){
+			rename("writing_books.txt" , "books.txt");	
+		} else {
+			cout << "Failed to create book.txt"
+		}
         }
         
         static Catalog* getInstance() { 
