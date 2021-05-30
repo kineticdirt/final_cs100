@@ -1,6 +1,6 @@
 #ifndef ___DISPLAY__HPP
 #define ___DISPLAY__HPP
-#include "catalog.hpp"
+#include "Catalog.hpp"
 #include <string>
 #include <iostream>
 #include <cctype>
