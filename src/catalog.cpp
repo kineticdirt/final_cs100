@@ -1,6 +1,6 @@
 #ifndef __CATALOG__CPP
 #define __CATALOG__CPP
-#include "../header/catalog.hpp"
+#include "../header/Catalog.hpp"
 
 Catalog::Catalog() {
 	display = nullptr;

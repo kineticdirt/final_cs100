@@ -8,8 +8,6 @@
 #include <limits>
 
 #include "user.hpp"
-#include "BookGroup.hpp"
-#include "BookComponent.hpp"
 #include "Book.hpp"
 #include "Catalog.hpp"
 
@@ -21,7 +19,6 @@ class Library
 	string acc_file_name;         //file containing all accounts
 	User* curr_user = nullptr;    //current user logged in
         vector<User*> users;          //stores all users
-	BookComponent* avail_books = nullptr;
 
     protected:
 	Catalog* catalog = nullptr;  //protected so the user/admin can access

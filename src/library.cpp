@@ -25,11 +25,6 @@ Library::~Library()
     }
 
     users.clear();
-
-    if (avail_books != nullptr)
-    {
-	delete avail_books;
-    }
 }
 
 void Library::initialize()
@@ -85,14 +80,14 @@ void Library::read_users()
 	password = temp;
 	getline(inFile, temp);
 
-	User* new_user = new User(username, password, avail_books);
+	User* new_user = new User(username, password);
 	this->users.push_back(new_user);
     }
 }
 
 void Library::init_catalog()
 {
-    this->catalog = catalog->get_instance();
+    this->catalog = catalog->getInstance();
 }
 
 char Library::menu()
@@ -157,7 +152,7 @@ void Library::create_acc()
     cout << "\nAccount " << username << " successfully created!" << endl;
 
     //adds new user to vector containing total users
-    User* new_user = new User(username, password, avail_books); 
+    User* new_user = new User(username, password); 
     this->users.push_back(new_user);
 }
 
@@ -178,7 +173,7 @@ bool Library::login()
             password == users.at(i)->get_password())
 	{
 	    //sets current user information
-	    curr_user = new User(username, password, avail_books);
+	    curr_user = new User(username, password);
 
 	    /* Outputs Welcome Message */
 	    cout << "\nWelcome, " << username << "!" << endl;
