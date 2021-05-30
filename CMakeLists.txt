@@ -6,7 +6,6 @@ ADD_EXECUTABLE(library
 	src/main.cpp
 	src/library.cpp
 	src/user.cpp
-	src/BookGroup.cpp
 	src/Admin.cpp
 	src/catalog.cpp
 )

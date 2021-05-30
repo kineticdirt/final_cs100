@@ -15,7 +15,7 @@ bool User::initialize()
     
     if (choice == '1')
     {
-	view_books(out);
+	view_books();
     }
     else  //if user enters '0'
     {

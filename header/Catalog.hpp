@@ -5,23 +5,27 @@
 #include <iostream>
 #include <cstdio>
 #include "Book.hpp"
+#include "display.hpp"
+
 using namespace std;
 
 class Catalog {
-    private:
-        Catalog() {}
-protected:
-    static vector<Book*> magazine;
-    static vector<Book*> comicBook;
-    static vector<Book*> poem;
-    static vector<Book*> novel;
-	Display* display;
-    Catalog();
+    vector<Book*> magazine;
+    vector<Book*> comicBook;
+    vector<Book*> poem;
+    vector<Book*> novel;
+    Display* display;
     static Catalog* instance;
+    ~Catalog();
+
+    protected:
+	vector<vector<Book*>> books;
+
     public:
-			void set_display(Display* new_display);
+	Catalog();
+	void set_display(Display* new_display);
         void print(ostream& out) const;
-        	static void read_books() {
+        	void read_books() {
 				ifstream bookList;
 				Book* book;           //Book object to instantiate from books.txt
 				string title;
@@ -68,7 +72,8 @@ protected:
             books.push_back(poem);
         }
 
-        static void add_to_books(Book* new_book, bool overwriteCondition) {
+        void add_to_books(Book* new_book, bool overwriteCondition) {
+	        /*
             	ofstream writingBooks("writing_books.txt");
             	int ISBN_Line = std::stoi(new_book->getIsbn());
             	ISBN_Line = ISBN_Line * 5;
@@ -80,7 +85,7 @@ protected:
             	}
             	int index = 0;
 				//indexing throughout the file
-				string* line = "";
+				string line = "";
             	while (index != ISBN_Line) {
                 	getline(booklist, line, '\n');
 			writingBooks << line << '\n';
@@ -104,6 +109,7 @@ protected:
 		} else {
 			cout << "Failed to create book.txt"
 		}
+		*/
         }
         
         static Catalog* getInstance() { 
@@ -112,6 +118,6 @@ protected:
 
             return instance; 
 	}
-}
+};
 
 #endif // !__CATALOG__HPP___

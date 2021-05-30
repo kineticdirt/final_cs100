@@ -2,7 +2,6 @@
 #define __USER_HPP__
 
 #include "Catalog.hpp"
-#include "BookComponent.hpp"
 #include <iostream>
 #include <sstream>
 
