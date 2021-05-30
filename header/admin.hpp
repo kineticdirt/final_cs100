@@ -6,11 +6,9 @@
 
 using namespace std;
 
-class Admin
+class Admin : class User
 {
     private:
-	string username;
-	string password;
   	User* admin_access;
 	
 	
