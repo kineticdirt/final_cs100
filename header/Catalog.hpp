@@ -11,10 +11,10 @@ class Catalog {
     private:
         Catalog() {}
 protected:
-    vector<Book*> magazine;
-    vector<Book*> comicBook;
-    vector<Book*> poem;
-    vector<Book*>novel;
+    static vector<Book*> magazine;
+    static vector<Book*> comicBook;
+    static vector<Book*> poem;
+    static vector<Book*> novel;
     static Catalog* instance;
     public:
         static void read_books() {
@@ -62,7 +62,7 @@ protected:
 
         static void add_to_books(Book* new_book, bool overwriteCondition) {
             	ofstream writingBooks("writing_books.txt");
-            	int ISBN_Line = std::stoi(new_book.getIsbn());
+            	int ISBN_Line = std::stoi(new_book->getIsbn());
             	ISBN_Line = ISBN_Line * 5;
 	    		ifstream bookList;
             	bookList.open ("books.txt");
@@ -72,22 +72,22 @@ protected:
             	}
             	int index = 0;
 				//indexing throughout the file
-				char* line = "";
+				char *line = "";
             	while (index != ISBN_Line) {
-                	bookList.getline(line, 100, "\n");
-					writingBooks << line << "\n";
+                	bookList.getline(line, 100, '\n');
+					writingBooks << line << '\n';
 					index++; 
 				}
 				for(int i = 0; i < 5; i++){
-					writing << new_Book.getname() << "\n";
-					writing << new_Book.gettitle() << "\n";
-					writing << new_Book.getIsbn() << "\n";
-					writing << new_Book.getgenre() << "\n";
-					writing << new_Book.getsubgenre() << "\n";
+					writing << new_Book->getname() << '\n';
+					writing << new_Book->gettitle() << '\n';
+					writing << new_Book->getIsbn() << '\n';
+					writing << new_Book->getgenre() << '\n';
+					writing << new_Book->getsubgenre() << '\n';
 				}
 				while (!booklist.eof) {
-                	bookList.getline(line, 100, "\n");
-					writingBooks << line << "\n";
+                	bookList.getline(line, 100, '\n');
+					writingBooks << line << '\n';
 				} 
 				booklist.close();
 				writingBooks.close();
@@ -104,5 +104,6 @@ protected:
 
             return instance; 
 	}
+}
 
 #endif // !__CATALOG__HPP___
