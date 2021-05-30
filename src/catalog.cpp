@@ -7,6 +7,12 @@ Catalog::Catalog() {
 }
 
 Catalog::~Catalog() {
+	vector<Book*>::iterator pos;
+	for (pos = books.begin();pos != books.end(); ++pos) {
+		Book* book = *pos;
+		delete book;
+	}
+	books.clear();
 	delete display;
 }
 
