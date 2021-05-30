@@ -10,7 +10,7 @@
 #include "user.hpp"
 #include "Book.hpp"
 #include "Catalog.hpp"
-
+#include "admin.hpp"
 using namespace std;
 
 class Library
@@ -18,8 +18,8 @@ class Library
     private:
 		string acc_file_name;         //file containing all accounts
 		User* curr_user = nullptr;    //current user logged in
-        vector<User*> users;      //stores all users
-		vector<Admin*> users;	      //stores the users
+        	vector<User*> users;     //stores all users
+		/*vector<Admin*> users;*/	      //stores the users
 
     protected:
 		Catalog* catalog = nullptr;  //protected so the user/admin can access
