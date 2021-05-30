@@ -18,7 +18,7 @@ class Admin
 	Admin(string, string);
 	//bool initialize();     //handles running user class until user logs out
 	//char user_menu();      //prints available admin menu
-        //void view_user_info();   //view current user information
+        void view_user_info();   //view current user information
         void view_info();      //view username & password
 	//void view_books();     //view a list of available books
 	string get_username() const; 
