@@ -10,8 +10,6 @@ Catalog::~Catalog() {
 	delete display;
 }
 
-Catalog* Catalog::instance = 0;
-
 void Catalog::set_display(Display* new_display) {
 	delete display;
 	display = new_display;

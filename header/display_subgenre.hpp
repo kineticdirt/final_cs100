@@ -13,9 +13,12 @@ public:
 	void display(vector<Book*> books,ostream& out) {
 		out << "SubGenre: " << subgenre << endl << endl;
 		for (int i = 0; i < books.size();i++) {
-				if (subgenre == books[i]->getsubgenre()) {
-					books[i]->display(out);
-				}
+			string str1 = books[i]->getsubgenre();
+			string str2 = subgenre;
+			bool result = iequals(str1, str2);
+			if (result) {
+				books[i]->display(out);
+			}
 		}
 	}
 };

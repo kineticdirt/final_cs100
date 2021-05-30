@@ -11,13 +11,12 @@ using namespace std;
 
 class Catalog {
     Display* display;
-    static Catalog* instance;
-    Catalog();
 
     protected:
 	vector<Book*> books;
 
     public:
+	Catalog();
 	~Catalog();
 	void set_display(Display* new_display);
         void print(ostream& out) const;
@@ -52,6 +51,7 @@ class Catalog {
 			book = new Book(title, author, isbn, genre, subgenre);
 
 			//adds books to their respective vector of genre
+			
 			books.push_back(book);
             }
 	    bookList.close(); 
@@ -95,12 +95,6 @@ class Catalog {
 		}
         }
         
-        static Catalog* getInstance() { 
-            if (!instance)
-                instance = new Catalog();
-
-            return instance; 
-	}
 };
 
 #endif // !__CATALOG__HPP___
