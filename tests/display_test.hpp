@@ -15,38 +15,38 @@ using namespace std;
 
 TEST(DisplayTest,GenreTest){
 		stringstream out;
-		Catalog* c;
+		Catalog* c = c->getInstance();
 		c->read_books();
-		c->set_display(new Display_Genre("MAGAZINE"));
+		c->set_display(new Display_Genre("Magazine"));
 		c->print(out);
-		EXPECT_EQ(out.str(),"Genre: MAGAZINE\n\nBook: Entertainment Weekly April 2020 by None\nBook: National Geographic September 2020 by None");
+		EXPECT_EQ(out.str(),"Genre: Magazine\n\nBook: Entertainment Weekly April 2020 by None\nBook: National Geographic September 2020 by None\n");
 }
 
 TEST(DisplayTest,SubGenreTest){
 		stringstream out;
-		Catalog* c;
+		Catalog* c = c->getInstance();
 		c->read_books();
 		c->set_display(new Display_Subgenre("Science Fiction"));
 		c->print(out);
-		EXPECT_EQ(out.str(),"SubGenre: Science Fiction\n\nBook: V for Vendetta by Alan Moore\nBook: East of West by Jonathan Hickman");
+		EXPECT_EQ(out.str(),"SubGenre: Science Fiction\n\nBook: V for Vendetta by Alan Moore\nBook: East of West by Jonathan Hickman\n");
 }
 
 TEST(DisplayTest,AuthorTest){
 		stringstream out;
-		Catalog* c;
+		Catalog* c = c->getInstance();
 		c->read_books();
-		c->set_display(new Display_Author("J.R.R. TOLKIEN"));
+		c->set_display(new Display_Author("None"));
 		c->print(out);
-		EXPECT_EQ(out.str(),"Author: J.R.R. TOLKIEN\n\nBook: The Lord of the Rings by J.R.R. Tolkien");
+		EXPECT_EQ(out.str(),"Author: None\n\nBook: Entertainment Weekly April 2020 by None\nBook: National Geographic September 2020 by None\n");
 }
 
 TEST(DisplayTest,TitleTest){
 		stringstream out;
-		Catalog* c;
+		Catalog* c = c->getInstance();
 		c->read_books();
 		c->set_display(new Display_Title("The Great Gatsby"));
 		c->print(out);
-		EXPECT_EQ(out.str(),"Title: The Great Gatsby\n\nBook: The Great Gatsby by F. Scott Fitzgerald");
+		EXPECT_EQ(out.str(),"Title: The Great Gatsby\n\nBook: The Great Gatsby by F. Scott Fitzgerald\n");
 }
 
 #endif

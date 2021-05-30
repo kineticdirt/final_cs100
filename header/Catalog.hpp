@@ -10,16 +10,12 @@
 using namespace std;
 
 class Catalog {
-    vector<Book*> magazine;
-    vector<Book*> comicBook;
-    vector<Book*> poem;
-    vector<Book*> novel;
     Display* display;
     static Catalog* instance;
     Catalog();
 
     protected:
-	vector<vector<Book*>> books;
+	vector<Book*> books;
 
     public:
 	~Catalog();
@@ -56,20 +52,9 @@ class Catalog {
 			book = new Book(title, author, isbn, genre, subgenre);
 
 			//adds books to their respective vector of genre
-			if (genre == "Novel")
-				novel.push_back(book);
-			else if (genre == "Magazine")
-				magazine.push_back(book);
-			else if (genre == "Comic Book")
-				comicBook.push_back(book);
-			else if (genre == "Poem")
-				poem.push_back(book);
+			books.push_back(book);
             }
 	    bookList.close(); 
-            books.push_back(novel);
-            books.push_back(magazine);
-            books.push_back(comicBook);
-            books.push_back(poem);
         }
 
         void add_to_books(Book* new_book, bool overwriteCondition) {
