@@ -92,12 +92,12 @@ class Catalog {
 			}
 		for(int i = 0; i < 5; i++){
 			writingBooks << new_book->getname() << '\n';
-			writingBooks << new_book->gettitle() << '\n';
+			writingBooks << new_book->getauthor() << '\n';
 			writingBooks << new_book->getIsbn() << '\n';
 			writingBooks << new_book->getgenre() << '\n';
 			writingBooks << new_book->getsubgenre() << '\n';
 		}
-		while (!bookList.eof) {
+		while (!bookList.eof()) {
                 	getline(bookList, line, '\n');
 			writingBooks << line << '\n';
 		} 
