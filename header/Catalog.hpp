@@ -16,56 +16,56 @@ class Catalog {
     vector<Book*> novel;
     Display* display;
     static Catalog* instance;
-    ~Catalog();
+    Catalog();
 
     protected:
 	vector<vector<Book*>> books;
 
     public:
-	Catalog();
+	~Catalog();
 	void set_display(Display* new_display);
         void print(ostream& out) const;
-        	void read_books() {
-				ifstream bookList;
-				Book* book;           //Book object to instantiate from books.txt
-				string title;
-				string author;
-				string isbn;
-				string genre;
-				string subgenre;
-				string temp;          //line to be read from books.txt
+        void read_books() {
+		ifstream bookList;
+		Book* book;           //Book object to instantiate from books.txt
+		string title;
+		string author;
+		string isbn;
+		string genre;
+		string subgenre;
+		string temp;          //line to be read from books.txt
 
-				bookList.open("books.txt");
-				if(!bookList.is_open()) {
-					cout << "File opening error!" << endl;
-				}
+		bookList.open("books.txt");
+		if(!bookList.is_open()) {
+			cout << "File opening error!" << endl;
+		}
 
-				while (getline(bookList, temp)) {
-					//reads a book's information
-					title = temp;
-					getline(bookList, temp);
-					author = temp;
-					getline(bookList, temp);
-					isbn = temp;
-					getline(bookList, temp);
-					genre = temp;
-					getline(bookList, temp);
-					subgenre = temp;
+		while (getline(bookList, temp)) {
+		//reads a book's information
+			title = temp;
+			getline(bookList, temp);
+			author = temp;
+			getline(bookList, temp);
+			isbn = temp;
+			getline(bookList, temp);
+			genre = temp;
+			getline(bookList, temp);
+			subgenre = temp;
 
-					//instantiates book 
-					book = new Book(title, author, isbn, genre, subgenre);
+			//instantiates book 
+			book = new Book(title, author, isbn, genre, subgenre);
 
-					//adds books to their respective vector of genre
-					if (genre == "Novel")
-						novel.push_back(book);
-					else if (genre == "Magazine")
-						magazine.push_back(book);
-					else if (genre == "Comic Book")
-						comicBook.push_back(book);
-					else if (genre == "Poem")
-						poem.push_back(book);
+			//adds books to their respective vector of genre
+			if (genre == "Novel")
+				novel.push_back(book);
+			else if (genre == "Magazine")
+				magazine.push_back(book);
+			else if (genre == "Comic Book")
+				comicBook.push_back(book);
+			else if (genre == "Poem")
+				poem.push_back(book);
             }
-			bookList.close(); 
+	    bookList.close(); 
             books.push_back(novel);
             books.push_back(magazine);
             books.push_back(comicBook);

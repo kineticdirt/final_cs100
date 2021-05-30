@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Admin : class User
+class Admin : public User
 {
     private:
   	User* admin_access;
