@@ -65,6 +65,7 @@ void Library::read_users()
     ifstream inFile;
     string username;
     string password;
+    string debt;
     string temp;
     
     inFile.open(acc_file_name);
@@ -79,8 +80,16 @@ void Library::read_users()
 	getline(inFile, temp);
 	password = temp;
 	getline(inFile, temp);
+	debt = temp;
+	getline(inFile, temp);
 
-	User* new_user = new User(username, password);
+        /*
+        cout << "Username: " << username << endl;
+   	cout << "Password: " << password << endl;
+	cout << "Debt: " << debt << endl;
+	*/
+
+	User* new_user = new User(username, password, stoi(debt));
 	this->users.push_back(new_user);
     }
 }
@@ -129,6 +138,7 @@ void Library::create_acc()
     ofstream outFile;
     string username;
     string password;
+    string debt = "0";
 
     outFile.open(acc_file_name, std::ios::app);
     if (!outFile.is_open())
@@ -145,6 +155,7 @@ void Library::create_acc()
     //outputs new user info to user .txt file 
     outFile << username << "\n";
     outFile << password << "\n";
+    outFile << debt << "\n";
     outFile << "User \n";
 
     outFile.close();
@@ -152,7 +163,7 @@ void Library::create_acc()
     cout << "\nAccount " << username << " successfully created!" << endl;
 
     //adds new user to vector containing total users
-    User* new_user = new User(username, password); 
+    User* new_user = new User(username, password, stoi(debt)); 
     this->users.push_back(new_user);
 }
 
@@ -173,7 +184,7 @@ bool Library::login()
             password == users.at(i)->get_password())
 	{
 	    //sets current user information
-	    curr_user = new User(username, password);
+	    curr_user = new User(username, password, users.at(i)->get_debt());
 
 	    /* Outputs Welcome Message */
 	    cout << "\nWelcome, " << username << "!" << endl;

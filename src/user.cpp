@@ -1,9 +1,10 @@
 #include "../header/user.hpp"
 
-User::User(string username, string password)
+User::User(string username, string password, int debt)
 {
     this->username = username;
     this->password = password;
+    this->debt = debt;
 }
 
 bool User::initialize()
@@ -17,9 +18,17 @@ bool User::initialize()
     {
 	view_books();
     }
-    else  //if user enters '0'
+    else if (choice == '4')
+    {
+	view_debt();
+    }
+    else if (choice == '0')
     {
 	return false;
+    }
+    else if (choice == ' ') 
+    {
+	user_menu();
     }
     
     return true;
@@ -45,22 +54,27 @@ char User::user_menu()
     {
  	cin >> choice;
 
-	if (choice == '1' || choice == '0')
+	if (choice == '1' || choice == '0' || choice == '4')
 	{
 	    return choice;
 	}
 	else
 	{
 	    cout << "Enter a valid menu option!" << endl;
-	    cin.clear();
+	    return ' ';
+	    //cin.clear();
 	}
     }
 }
 
-void User::view_my_info()
+void User::view_debt()
 {
-    cout << "\nUsername: " << get_username() << endl;
-    cout << "Password: " << get_password() << endl;
+    cout << "Total debt: $" << get_debt() << endl;
+}
+
+int User::get_debt() const
+{
+    return debt;
 }
 
 string User::get_username() const 
