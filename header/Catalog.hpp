@@ -91,22 +91,22 @@ class Catalog {
 			index++; 
 			}
 		for(int i = 0; i < 5; i++){
-			writing << new_Book->getname() << '\n';
-			writing << new_Book->gettitle() << '\n';
-			writing << new_Book->getIsbn() << '\n';
-			writing << new_Book->getgenre() << '\n';
-			writing << new_Book->getsubgenre() << '\n';
+			writingBooks << new_Book->getname() << '\n';
+			writingBooks << new_Book->gettitle() << '\n';
+			writingBooks << new_Book->getIsbn() << '\n';
+			writingBooks << new_Book->getgenre() << '\n';
+			writingBooks << new_Book->getsubgenre() << '\n';
 		}
 		while (!booklist.eof) {
-                	getline(booklist, line, '\n');
+                	getline(bookList, line, '\n');
 			writingBooks << line << '\n';
 		} 
-		booklist.close();
+		bookList.close();
 		writingBooks.close();
 		if(remove("books.txt") != 0){
 			rename("writing_books.txt" , "books.txt");	
 		} else {
-			cout << "Failed to create book.txt"
+			cout << "Failed to create book.txt";
 		}
         }
         
