@@ -73,7 +73,6 @@ class Catalog {
         }
 
         void add_to_books(Book* new_book, bool overwriteCondition) {
-	        /*
             	ofstream writingBooks("writing_books.txt");
             	int ISBN_Line = std::stoi(new_book->getIsbn());
             	ISBN_Line = ISBN_Line * 5;
@@ -83,9 +82,9 @@ class Catalog {
             	if(!bookList.is_open()){
                 	cout << "File opening error!" << endl;
             	}
-            	int index = 0;
-				//indexing throughout the file
-				string line = "";
+            		int index = 0;
+			//indexing throughout the file
+			string line = "";
             	while (index != ISBN_Line) {
                 	getline(booklist, line, '\n');
 			writingBooks << line << '\n';
@@ -109,7 +108,6 @@ class Catalog {
 		} else {
 			cout << "Failed to create book.txt"
 		}
-		*/
         }
         
         static Catalog* getInstance() { 
