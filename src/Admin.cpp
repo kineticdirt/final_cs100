@@ -4,15 +4,17 @@
 #include <string>
 
 
-Admin::Admin(string username, string password) : public User(username, password){
-  ofstream outFile;
-	outFile.open("admin_account.txt", std::ios::app);
-  if (!inFile.is_open())
-	{
-		  cout << "admin_accounts.txt" << " does not exist!" << endl;
-   } 	else {
-		  cout << get_username() << " : " << get_password() << endl;
-	}
+Admin::Admin(string username, string password) {
+	  this->username = username;
+	  this->password = password;
+	  ofstream outFile;
+		outFile.open("admin_account.txt", std::ios::app);
+	  if (!inFile.is_open())
+		{
+			  cout << "admin_accounts.txt" << " does not exist!" << endl;
+	   } 	else {
+			  cout << get_username() << " : " << get_password() << endl;
+		}
 }
 
 bool Admin::initialize()
@@ -99,7 +101,7 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 			return;
 		}
 		string* checker;
-		while(getline(file, checker, ' '){
+		while(getline(file, checker, ' ')){
 			string title1;
 			if(user_username.compare(*checker)) {
 				file >> title1;
