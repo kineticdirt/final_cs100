@@ -255,7 +255,6 @@ void User::view_borrowed()
 void User::borrow_title(istream& in)
 {
     string book;
-    cin.ignore(256, '\n');
 
     cout << "Enter title of book to borrow: ";
     getline(in, book);
@@ -281,7 +280,6 @@ void User::borrow_title(istream& in)
 void User::borrow_author(istream& in)
 {
     string author;
-    cin.ignore(256, '\n');
 
     cout << "Enter author to borrow: ";
     getline(in, author);
@@ -307,7 +305,6 @@ void User::borrow_author(istream& in)
 void User::borrow_isbn(istream& in)
 {
     string isbn;
-    cin.ignore(256, '\n');
 
     cout << "Enter ISBN of book to borrow: ";
     getline(in, isbn);

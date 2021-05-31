@@ -3,3 +3,5 @@ user123 The Lord of the Rings
 daniel The Great Gatsby
 daniel The Raven
 daniel V for Vendetta
+daniel The Lord of the Rings
+daniel V for Vendetta
