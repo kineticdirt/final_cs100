@@ -22,3 +22,4 @@ class Admin : public User
 };
 
 #endif //__ADMIN_HPP__
+
