@@ -109,7 +109,7 @@ TEST(UserTest, BorrowISBN) {
     test.view_borrowed();
     string output = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ("FakeUser6's borrowed books: \n\tThe Lord of the Rings\n\tThe Raven\n\n", output);
+    EXPECT_EQ("FakeUser6's borrowed books: \n\tStopping by Woods on a Snowy Evening\n\n", output);
 }
 
 TEST(UserTest, BorrowInvalidISBN) {
@@ -123,7 +123,7 @@ TEST(UserTest, BorrowInvalidISBN) {
     test.view_borrowed();
     string output = testing::internal::GetCapturedStdout();
 
-    EXPECT_EQ("FakeUser5's borrowed books: \n\n", output);
+    EXPECT_EQ("FakeUser7's borrowed books: \n\n", output);
 }
 
 #endif //__USER__TEST_HPP__
