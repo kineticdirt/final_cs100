@@ -9,6 +9,11 @@ User::User(string username, string password, int debt, Catalog* books)
     initialize_borrowed();
 }
 
+User::~User()
+{
+
+}
+
 bool User::initialize()
 {
     stringstream out;
@@ -20,15 +25,15 @@ bool User::initialize()
     {
 	view_books();
     }
-    else if (choice == '3')
+    else if (choice == '2')
     {
 	borrow_menu();
     }
-    else if (choice == '4')
+    else if (choice == '3')
     {
 	view_debt();
     }
-    else if (choice == '5')
+    else if (choice == '4')
     {
 	view_borrowed();
     }
@@ -77,26 +82,21 @@ char User::user_menu()
     cout << "User: " << this->username << endl;
     cout << "========================" << endl;
     cout << "1. View Books" << endl;
-    cout << "2. Search Books" << endl;
-    cout << "3. Borrow A Book" << endl;
-    cout << "4. View Debt" << endl;
-    cout << "5. View Borrowed Books" << endl;
+    cout << "2. Borrow A Book" << endl;
+    cout << "3. View Debt" << endl;
+    cout << "4. View Borrowed Books" << endl;
     cout << "0. Main Menu" << endl;
 
     /* User Input */
-    while (choice != '1' && choice != '0')
+    cin >> choice;
+    if (choice == '0' || choice == '1' || choice == '2' || choice == '3' || choice == '4')
     {
- 	cin >> choice;
-
-	if (choice == '1' || choice == '0' || choice == '3' || choice == '4' || choice == '5')
-	{
-	    return choice;
-	}
-	else
-	{
-	    cout << "Enter a valid menu option!" << endl;
-	    return ' ';
-	}
+	return choice;
+    }
+    else
+    {
+	cout << "Enter a valid menu option!" << endl;
+	return ' ';
     }
 }
 
@@ -153,10 +153,14 @@ string User::get_password() const
 void User::view_books()
 {
     stringstream out;
+    string title;
+    string author;
     char choice;
 
     cout << "1. View by genres" << endl;
     cout << "2. View by subgenres" << endl;
+    cout << "3. View by title" << endl;
+    cout << "4. View by author" << endl;
 
     cin >> choice;
  
@@ -228,6 +232,42 @@ void User::view_books()
 	else
 	{
 	    cout << "Invalid choice!" << endl;
+	    return;
+	}
+    }
+    else if (choice == '3')
+    {
+	cout << "Enter title to display: ";
+	getline(cin, title);
+
+	all_books->set_search(new Search_Title(title));
+	Book* target = all_books->getbook();
+
+	if (target != nullptr)
+	{
+	    all_books->set_display(new Display_Title(title));
+	}
+	else
+	{
+	    cout << "Title doesn't exist!" << endl;
+	    return;
+	}
+    }
+    else if (choice == '4')
+    {
+	cout << "Enter author to display: ";
+	getline(cin, author);
+
+	all_books->set_search(new Search_Author(author));
+	Book* target = all_books->getbook();
+
+	if (all_books->getbook() != nullptr)
+	{
+	    all_books->set_display(new Display_Author(author));
+	}
+	else
+	{
+	    cout << "Author doesn't exist!" << endl;
 	    return;
 	}
     }

@@ -31,7 +31,6 @@ TEST(UserTest, DebtTest) {
 
 TEST(UserTest, DebtAccumulation) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser", "FakePass", 0, catalog);
 
     istringstream in("The Great Gatsby"); 
@@ -43,7 +42,6 @@ TEST(UserTest, DebtAccumulation) {
 
 TEST(UserTest, BorrowTitle) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser2", "FakePass2", 0, catalog);
 
     istringstream in("The Lord of the Rings");
@@ -60,7 +58,6 @@ TEST(UserTest, BorrowTitle) {
 
 TEST(UserTest, BorrowInvalidTitle) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser3", "FakePass3", 0, catalog);
 
     istringstream in("Invalid Book");
@@ -75,7 +72,6 @@ TEST(UserTest, BorrowInvalidTitle) {
 
 TEST(UserTest, BorrowAuthor) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser4", "FakePass4", 0, catalog);
 
     istringstream in("Alan Moore");
@@ -90,7 +86,6 @@ TEST(UserTest, BorrowAuthor) {
 
 TEST(UserTest, BorrowInvalidAuthor) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser5", "FakePass5", 0, catalog);
 
     istringstream in("Invalid Title");
@@ -105,7 +100,6 @@ TEST(UserTest, BorrowInvalidAuthor) {
 
 TEST(UserTest, BorrowISBN) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser6", "FakePass6", 0, catalog);
 
     istringstream in("35");
@@ -120,7 +114,6 @@ TEST(UserTest, BorrowISBN) {
 
 TEST(UserTest, BorrowInvalidISBN) {
     Catalog* catalog = catalog->getInstance();
-    catalog->read_books();
     User test = User("FakeUser7", "FakePass7", 0, catalog);
 
     istringstream in("Invalid ISBN");

@@ -3,15 +3,15 @@
 #include <iostream>
 #include <string>
 
-Admin::Admin(string user, string pass) : public User(user, pass), 
-{
-	ofstream outFile;
+
+Admin::Admin(string username, string password) : public User(username, password){
+  ofstream outFile;
 	outFile.open("admin_account.txt", std::ios::app);
-    if (!inFile.is_open())
+  if (!inFile.is_open())
 	{
-		cout << "admin_accounts.txt" << " does not exist!" << endl;
-    } 	else {
-		cout << get_username() << " : " << get_password() << endl;
+		  cout << "admin_accounts.txt" << " does not exist!" << endl;
+   } 	else {
+		  cout << get_username() << " : " << get_password() << endl;
 	}
 }
 
@@ -46,6 +46,8 @@ bool Admin::initialize()
     
     return true;
 }
+
+
 char Admin::admin_menu()
 {
     char choice = ' ';
