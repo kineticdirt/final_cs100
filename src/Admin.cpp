@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-Admin::Admin(string user, string pass) : username{user}, password{pass}
+Admin::Admin(string user, string pass) : public User(user, pass), 
 {
 	ofstream outFile;
 	outFile.open("admin_account.txt", std::ios::app);
@@ -15,7 +15,7 @@ Admin::Admin(string user, string pass) : username{user}, password{pass}
 	}
 }
 
-bool User::initialize()
+bool Admin::initialize()
 {
     char choice = ' ';
     choice = user_menu();
