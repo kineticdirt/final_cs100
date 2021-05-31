@@ -1,7 +1,5 @@
 
 #include "../header/admin.hpp"
-#include <ifstream>
-#include <ofstream>
 #include <iostream>
 #include <string>
 
