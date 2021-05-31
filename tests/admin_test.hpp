@@ -7,7 +7,7 @@
 #include "../header/admin.hpp"
 #include "../src/Admin.cpp"
 #include "../header/Book.hpp"
-#include <ifstream>
+#include <iostream>
 TEST(AdminTest, UsernameTest) {
     Admin test = Admin("username", "password");
     EXPECT_EQ(test.get_username(), "username"); 
