@@ -113,13 +113,25 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 			}
 		}
 		file.close();
-		ofstream outfile("borrowed_books.txt", std::ios::app);
-		outfile << user_username <<" " << title << endl;
-        	outfile.close();
+		cout << "entering check" << endl;
+		printBook(user_username, title);
+		
 	} else { 
 		cout << "incorrect password, reenter correct password" << endl;
 		string passwrd1;
 		cin >> passwrd1; 
 		borrow_user_book(passwrd1, user_username, title);
 	}
+}
+
+void printBook(string username, string title) {
+	ofstream outfile;
+	outfile.open("borrowed_books.txt", std::ios::app);
+	if(!outfile.is_open()) {
+			cout << "Failed to open borrowed_books" << endl;
+			return;
+	}
+	outfile << username << " " << title << endl;
+        outfile.close();
+	return;
 }
