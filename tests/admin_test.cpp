@@ -5,10 +5,7 @@
 #include "gtest/gtest.h"
 #include "../header/admin.hpp"
 #include "../header/library.hpp"
-#include "../header/admin.hpp"
 #include "../header/Book.hpp"
-#include "../header/BookComponent.hpp"
-#include "../header/BookGroup.hpp"
 
 TEST(AdminTest, UsernameTest) {
     Admin test = Admin("username", "password");
