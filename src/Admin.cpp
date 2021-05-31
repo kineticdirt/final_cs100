@@ -9,7 +9,7 @@ Admin::Admin(string username, string password) {
 	  this->password = password;
 	  ofstream outFile;
 		outFile.open("admin_account.txt", std::ios::app);
-	  if (!inFile.is_open())
+	  if (!outFile.is_open())
 		{
 			  cout << "admin_accounts.txt" << " does not exist!" << endl;
 	   } 	else {
@@ -20,7 +20,7 @@ Admin::Admin(string username, string password) {
 bool Admin::initialize()
 {
     char choice = ' ';
-    choice = user_menu();
+    choice = admin_menu();
     if (choice == '1')
     {
 	//view_books();
@@ -83,12 +83,12 @@ char Admin::admin_menu()
 }
 
 
-string Admin::get_username() const 
+string Admin::get_username()
 {
     return username;
 }
 
-string Admin::get_password() const
+string Admin::get_password()
 {
     return password;
 }
