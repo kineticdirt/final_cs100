@@ -1,6 +1,7 @@
 
 #include "../header/admin.hpp"
-#include <fstream>
+#include <ifstream>
+#include <ofstream>
 #include <iostream>
 #include <string>
 
@@ -91,8 +92,8 @@ string Admin::get_password() const
 }
 void Admin::borrow_user_book(string passwrd, string user_username, string title) {
 	if(passwrd == getPassword()) {
-		fstream file;
-		file.open("borrowed_books.txt",std::fstream::in | std::fstream::out | std::fstream::app);
+		ifstream file;
+		file.open("borrowed_books.txt", std::fstream::in);
 		if(!file.is_open()) {
 			cout << "Failed to open borrowed_books" << endl;
 			return;
@@ -106,8 +107,10 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 					return;
 			}
 		}
-		file << user_username<<" " << title << endl;
-        file.close(); 
+		file.close();
+		ofstream outfile("borrowed_books.txt", std::fstream::app)
+		outfile << user_username<<" " << title << endl;
+        	outfile.close()
 	} else { 
 		cout << "incorrect password, reenter correct password"
 		string passwrd1;
