@@ -38,4 +38,32 @@ TEST(UserTest, DebtAccumulation) {
     EXPECT_EQ(test.get_debt(), 5);
 }
 
+TEST(UserTest, BorrowMultipleBooks) {
+    Catalog* catalog = catalog->getInstance();
+    User test = User("FakeUser2", "FakePass2", 0, catalog);
+
+    istringstream in("Test_Book_1");
+    test.borrow_a_book(in);
+    istringstream in2("Test_Book_2");
+    test.borrow_a_book(in2);
+    istringstream in3("Test_Book_3");
+    test.borrow_a_book(in3);
+
+    testing::internal::CaptureStdout();
+    test.view_borrowed();
+    string output = testing::internal::GetCapturedStdout();
+
+    EXPECT_EQ("FakeUser2's borrowed books: \n\tTest_Book_1\n\tTest_Book_2\n\tTest_Book_3\n\n", output);
+}
+
 #endif //__USER__TEST_HPP__
+
+
+
+
+
+
+
+
+
+
