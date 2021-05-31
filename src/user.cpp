@@ -125,17 +125,14 @@ void User::view_books()
     stringstream out;
     char choice;
 
-    cout << "1. View all books" << endl;
-    cout << "2. View by genres" << endl;
-    cout << "3. View by subgenres" << endl;
-    cout << "4. View by titles" << endl;
-    cout << "5. View by authors" << endl;
+    cout << "1. View by genres" << endl;
+    cout << "2. View by subgenres" << endl;
 
     cin >> choice;
-
-    if (choice == '2')
+ 
+    cin.ignore(256, '\n');
+    if (choice == '1')
     {
-	cin.ignore(256, '\n');
 	cout << "1. Novels" << endl;
 	cout << "2. Magazines" << endl;
 	cout << "3. Comic Books" << endl;
@@ -145,9 +142,73 @@ void User::view_books()
 	if (choice == '1')
 	{
 	    all_books->set_display(new Display_Genre("Novel"));
-	    all_books->print(out);
+	}
+	else if (choice == '2')
+	{
+	    all_books->set_display(new Display_Genre("Magazine"));
+	}
+	else if (choice == '3')
+	{
+	    all_books->set_display(new Display_Genre("Comic Book"));
+	}
+	else if (choice == '4')
+	{
+	    all_books->set_display(new Display_Genre("Poem"));
+	}
+	else
+	{
+	    cout << "Invalid choice!" << endl;
+	    return;
 	}
     }    
+    else if (choice == '2')
+    {
+	cout << "1. Fiction" << endl;
+	cout << "2. Fantasy" << endl;
+	cout << "3. Non-Fiction" << endl;
+	cout << "4. Educational" << endl;
+	cout << "5. Science Fiction" << endl;
+	cout << "6. Horror" << endl;	
+	cin >> choice;
+
+	if (choice == '1')
+        {
+            all_books->set_display(new Display_Subgenre("Fiction"));
+        }
+        else if (choice == '2')
+        {
+            all_books->set_display(new Display_Subgenre("Fantasy"));
+        }
+        else if (choice == '3')
+        {
+            all_books->set_display(new Display_Subgenre("Non-Fiction"));
+        }
+        else if (choice == '4')
+        {
+            all_books->set_display(new Display_Subgenre("Educational"));
+        }
+	else if (choice == '5')
+	{
+	    all_books->set_display(new Display_Subgenre("Science Fiction"));
+	}
+	else if (choice == '6')
+	{
+	    all_books->set_display(new Display_Subgenre("Horror"));
+	}
+	else
+	{
+	    cout << "Invalid choice!" << endl;
+	    return;
+	}
+    }
+    else
+    {
+        cout << "Invalid choice!" << endl;
+	return;
+    }
+
+    all_books->print(out);
+    cout << out.str() << endl;
 }
 
 void User::view_borrowed()
