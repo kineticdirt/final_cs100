@@ -18,7 +18,7 @@ class Admin : public User
 	char admin_menu();               //prints available user menus              
 	void view_borrowed();           //view a list of borrowed books
 	void update_book_file();        //updates borrowed books .txt file if user borrows a new book
-        void borrow_user_book();        
+        void borrow_user_book(string passwrd, string user_username, string title);        
 };
 
 #endif //__ADMIN_HPP__
