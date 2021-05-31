@@ -8,7 +8,7 @@ Admin::Admin(string username, string password) {
 	  this->username = username;
 	  this->password = password;
 	  ofstream outFile;
-		outFile.open("admin_account.txt", std::ios::app);
+		outFile.open("admin_accounts.txt", std::ios::app);
 	  if (!outFile.is_open())
 		{
 			  cout << "admin_accounts.txt" << " does not exist!" << endl;
@@ -114,7 +114,7 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 		}
 		file.close();
 		ofstream outfile("borrowed_books.txt", std::fstream::app);
-		outfile << user_username<<" " << title << endl;
+		outfile << user_username <<" " << title << endl;
         	outfile.close();
 	} else { 
 		cout << "incorrect password, reenter correct password" << endl;
