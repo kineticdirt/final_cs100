@@ -93,21 +93,23 @@ string Admin::get_password()
     return password;
 }
 void Admin::borrow_user_book(string passwrd, string user_username, string title) {
-	if(passwrd == getPassword()) {
+	if(passwrd == get_password()) {
 		ifstream file;
 		file.open("borrowed_books.txt", std::fstream::in);
 		if(!file.is_open()) {
 			cout << "Failed to open borrowed_books" << endl;
 			return;
 		}
-		string* checker;
-		while(getline(file, checker, ' ')){
+		string* checker == nullptr;
+		getline(file, checker, ' ');
+		while(checker){
 			string title1;
 			if(user_username.compare(*checker)) {
 				file >> title1;
 				if(title1.compare(title)) {
 					return;
 			}
+			getline(file, checker, ' ');
 		}
 		file.close();
 		ofstream outfile("borrowed_books.txt", std::fstream::app)
