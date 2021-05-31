@@ -10,13 +10,14 @@
 using namespace std;
 
 class Catalog {
-    Display* display;
-
-    protected:
+private:
+        Display* display;
+        Catalog();
+        static Catalog* instance;	
+protected:
 	vector<Book*> books;
 
-    public:
-	Catalog();
+public:
 	~Catalog();
 	void set_display(Display* new_display);
         void print(ostream& out) const;
@@ -93,6 +94,13 @@ class Catalog {
 		} else {
 			cout << "Failed to create book.txt";
 		}
+        
+	}
+ static Catalog* getInstance() { 
+            if (!instance)
+                instance = new Catalog();
+
+            return instance; 
         }
         
 };

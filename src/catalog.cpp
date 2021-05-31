@@ -2,6 +2,8 @@
 #define __CATALOG__CPP
 #include "../header/Catalog.hpp"
 
+using namespace std;
+
 Catalog::Catalog() {
 	display = nullptr;
 }
@@ -20,6 +22,8 @@ void Catalog::set_display(Display* new_display) {
 	delete display;
 	display = new_display;
 }
+
+Catalog* Catalog::instance = 0;
 
 void Catalog::print(ostream& out) const {
 	display->display(books,out);
