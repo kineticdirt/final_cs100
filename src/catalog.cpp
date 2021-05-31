@@ -6,6 +6,7 @@ using namespace std;
 
 Catalog::Catalog() {
 	display = nullptr;
+	s = nullptr;
 }
 
 Catalog::~Catalog() {
@@ -16,6 +17,16 @@ Catalog::~Catalog() {
 	}
 	books.clear();
 	delete display;
+	delete s;
+}
+
+void Catalog::set_search(Search* new_search) {
+	delete s;
+	s = new_search;
+}
+
+Book* Catalog::getbook() {
+	return s->search(books);
 }
 
 void Catalog::set_display(Display* new_display) {
