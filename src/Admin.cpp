@@ -108,13 +108,14 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 				file >> title1;
 				if(title1.compare(title)) {
 					return;
-			}
+				}
 			getline(file, checker, ' ');
+			}
 		}
 		file.close();
 		ofstream outfile("borrowed_books.txt", std::fstream::app)
 		outfile << user_username<<" " << title << endl;
-        	outfile.close()
+        	outfile.close();
 	} else { 
 		cout << "incorrect password, reenter correct password"
 		string passwrd1;
