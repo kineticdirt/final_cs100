@@ -1,12 +1,6 @@
-admin123
-adminpass123
-0
-User
 user123
 pass123
-20
-User
+0
 daniel
 danielPass
 10
-User
