@@ -18,6 +18,7 @@
  > * This project is interesting to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems we may implement in the future.
  > * The languages/tools we plan on using include:
  >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
+ >   * [CMake] (https://cmake.org/) - We'll be using CMake to compile our program.
  >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
  >   * [GoogleTest](https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
  >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
@@ -44,7 +45,13 @@
  ## Screenshots
  > Screenshots of the input/output after running your application
  ## Installation/Usage
- > Instructions on installing and running your application
+ * Clone the repository onto your local Linux CLI environment.
+ * Make sure you have [CMake](https://cmake.org/) installed.
+ * Navigate to the local repository, and run "cmake ." to generate the necessary build files.
+ * Run "make" to build the program.
+ * Finally, run the command "./library" to run the program. The menu inputs consist of single characters, while inputting user or book information require a line. After every input, press "ENTER" to end the input and unpause the program.
+ * To quit the program, navigate back to the main menu and enter "0". Alternatively, enter "CTRL + C" to kill the program.
+ * To run tests, run the command "./tests".
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
