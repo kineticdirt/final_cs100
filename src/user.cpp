@@ -22,7 +22,7 @@ bool User::initialize()
     }
     else if (choice == '3')
     {
-	borrow_a_book();
+	borrow_a_book(cin);
     }
     else if (choice == '4')
     {
@@ -222,14 +222,14 @@ void User::view_borrowed()
     cout << endl;
 }
 
-void User::borrow_a_book()
+void User::borrow_a_book(istream& in)
 {
     string book;
     cin.ignore(256, '\n');
 
     cout << "Enter title of book to borrow: ";
-    getline(cin, book);
-
+    getline(in, book);
+ 
     borrowed.push_back(book); 
     debt += 5; 
     update_book_file();

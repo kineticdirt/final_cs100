@@ -32,7 +32,7 @@ class User
 	void view_books();              //view a list of available books
 	void view_borrowed();           //view a list of borrowed books
 	void update_book_file();        //updates borrowed books .txt file if user borrows a new book
-        void borrow_a_book();           
+        void borrow_a_book(istream& in);           
 	int get_debt() const;
 	string get_username() const; 
 	string get_password() const;
