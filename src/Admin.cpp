@@ -113,11 +113,11 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 			}
 		}
 		file.close();
-		ofstream outfile("borrowed_books.txt", std::fstream::app)
+		ofstream outfile("borrowed_books.txt", std::fstream::app);
 		outfile << user_username<<" " << title << endl;
         	outfile.close();
 	} else { 
-		cout << "incorrect password, reenter correct password"
+		cout << "incorrect password, reenter correct password" << endl;
 		string passwrd1;
 		cin >> passwrd1; 
 		borrow_user_book(passwrd1, user_username, title);
