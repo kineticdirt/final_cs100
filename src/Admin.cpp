@@ -1,7 +1,7 @@
 #include "../header/admin.hpp"
 
-Admin::Admin(string username, string password) : User(username, password){}
-/*
+Admin::Admin(string username, string password) : public User(username, password){}
+
 bool User::initialize()
 {
     char choice = ' ';
@@ -17,8 +17,40 @@ bool User::initialize()
     
     return true;
 }
-*/
-/*char Admin::admin_menu()
+
+bool User::initialize()
+{
+    char choice = ' ';
+    choice = user_menu();
+    if (choice == '1')
+    {
+	view_books();
+    }
+    else if (choice == '3')
+    {
+	borrow_a_book();
+    }
+    else if (choice == '4')
+    {
+		view_debt();
+    }
+    else if (choice == '5')
+    {
+		view_borrowed();
+    }
+    else if (choice == '0')
+    {
+	return false;
+    }
+    else if (choice == ' ') 
+    {
+		admin_menu();
+    }
+    
+    return true;
+}
+
+char Admin::admin_menu()
 {
     char choice = ' ';
    
@@ -30,25 +62,26 @@ bool User::initialize()
     cout << "2. Search Books" << endl;
     cout << "3. Assign book to User" << endl;
     cout << "4. View Users" << endl;
+	  cout << "5. View Users" << endl;
     cout << "0. Main Menu" << endl;
 
    
-    while (choice != '1' && choice != '0')
+   while (choice != '1' && choice != '0')
     {
  	cin >> choice;
 
-	if (choice == '1' || choice == '0')
+	if (choice == '1' || choice == '0' || choice == '2' || choice == '3' || choice == '4' || choice == '5')
 	{
 	    return choice;
 	}
 	else
 	{
 	    cout << "Enter a valid menu option!" << endl;
-	    cin.clear();
+	    return ' ';
 	}
     }
 }
-*/
+
 void Admin::view_info()
 {
     cout << "\nUsername: " << get_username() << endl;
