@@ -93,7 +93,6 @@ void Library::read_users()
 	password = temp;
 	getline(inFile, temp);
 	debt = temp;
-	getline(inFile, temp);
 
 	User* new_user = new User(username, password, stoi(debt), catalog);
 	this->users.push_back(new_user);
@@ -102,7 +101,7 @@ void Library::read_users()
 
 void Library::init_catalog()
 {
-   // this->catalog = catalog->getInstance();
+    this->catalog = catalog->getInstance();
 }
 
 char Library::menu()
@@ -162,7 +161,6 @@ void Library::create_acc()
     outFile << username << "\n";
     outFile << password << "\n";
     outFile << debt << "\n";
-    outFile << "User \n";
 
     outFile.close();
 
@@ -206,7 +204,6 @@ void Library::update_users()
 	}
 
         outFile << to_string(debt_cnt) << endl; 
-	outFile << "User" << endl;
 
   	books.close(); 
     }
