@@ -192,17 +192,12 @@ void Library::update_users()
 	
 	outFile << users.at(i)->get_username() << endl;
 	outFile << users.at(i)->get_password() << endl;
-	cout << "Checking: " << users.at(i)->get_username() << endl;
 
 	while (books >> username)
 	{
-	    cout << count << endl;
-	    cout << users.at(i)->get_username() << ", " << username << endl;
-
 	    //adds 5 to current user's total debt if it's a match
 	    if (users.at(i)->get_username() == username)
 	    {
-		cout << username << "'s current debt: " << debt_cnt + 5 << endl;
 	 	debt_cnt += 5;
 	    }
 
