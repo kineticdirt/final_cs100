@@ -23,19 +23,19 @@ bool Admin::initialize()
     choice = user_menu();
     if (choice == '1')
     {
-	view_books();
+	//view_books();
     }
     else if (choice == '3')
     {
-	borrow_a_book();
+	//borrow_user_book();
     }
     else if (choice == '4')
     {
-		view_debt();
+		//na
     }
     else if (choice == '5')
     {
-		view_borrowed();
+		//na
     }
     else if (choice == '0')
     {
