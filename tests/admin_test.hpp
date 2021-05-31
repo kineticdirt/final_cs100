@@ -7,7 +7,7 @@
 #include "../header/admin.hpp"
 #include "../src/Admin.cpp"
 #include "../header/Book.hpp"
-#include <iostream>
+#include <iostream>;
 
 TEST(AdminTest, UsernameTest) {
     Admin test = Admin("username", "password");
@@ -21,7 +21,7 @@ TEST(AdminTest, BookTest) {
     Admin test = Admin("username", "password");
     test.borrow_user_book("password", "wholesome" , "delete_this");
     ifstream inputFile("borrowed_books.txt")
-    string s1;
+    string s1 = "";
     while(inputFile >> s1);
     EXPECT_EQ(s1, "delete_this");
 }
