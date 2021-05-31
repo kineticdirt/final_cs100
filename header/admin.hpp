@@ -6,9 +6,11 @@
 
 using namespace std;
 
-class Admin : public User
+class Admin
 {
     private:
+	string username;
+	string password;
   	User* admin_access;
 	
 	
@@ -19,6 +21,8 @@ class Admin : public User
 	void view_borrowed();           //view a list of borrowed books
 	void update_book_file();        //updates borrowed books .txt file if user borrows a new book
         void borrow_user_book(string passwrd, string user_username, string title);        
+	string get_username();
+	string get_password();
 };
 
 #endif //__ADMIN_HPP__
