@@ -179,9 +179,11 @@ void Library::update_users()
     string title;      //book title to read from books
     
     int debt_cnt;
-    books.open("borrowed_books.txt");
+    int count = 0;
     outFile.open("accounts.txt");
  
+    cin.ignore(256, '\n');
+
     //counts each user's debt total 
     for (int i = 0; i < users.size(); i++)	
     {
@@ -190,12 +192,17 @@ void Library::update_users()
 	
 	outFile << users.at(i)->get_username() << endl;
 	outFile << users.at(i)->get_password() << endl;
+	cout << "Checking: " << users.at(i)->get_username() << endl;
 
 	while (books >> username)
 	{
+	    cout << count << endl;
+	    cout << users.at(i)->get_username() << ", " << username << endl;
+
 	    //adds 5 to current user's total debt if it's a match
 	    if (users.at(i)->get_username() == username)
 	    {
+		cout << username << "'s current debt: " << debt_cnt + 5 << endl;
 	 	debt_cnt += 5;
 	    }
 
@@ -207,6 +214,8 @@ void Library::update_users()
 
   	books.close(); 
     }
+
+    outFile.close();
 }
 
 bool Library::login()
