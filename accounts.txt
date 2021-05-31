@@ -1,6 +1,6 @@
 user123
 pass123
-20
+10
 daniel
 danielPass
-10
+25

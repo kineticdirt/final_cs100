@@ -20,6 +20,8 @@ public:
 				return books[i];
 			}
 		}
+
+		return nullptr;
 	}
 };
 

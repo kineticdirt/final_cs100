@@ -22,7 +22,7 @@ bool User::initialize()
     }
     else if (choice == '3')
     {
-	borrow_a_book(cin);
+	borrow_menu();
     }
     else if (choice == '4')
     {
@@ -97,6 +97,36 @@ char User::user_menu()
 	    cout << "Enter a valid menu option!" << endl;
 	    return ' ';
 	}
+    }
+}
+
+void User::borrow_menu()
+{
+    char choice;
+
+    cout << endl << endl;
+    cout << "1. Borrow a book by title" << endl;
+    cout << "2. Borrow a book by author" << endl;
+    cout << "3. Borrow a book by isbn" << endl;
+
+    cin >> choice;
+    cin.ignore(256, '\n');
+
+    if (choice == '1')
+    {
+	borrow_title(cin);
+    }
+    else if (choice == '2')
+    {
+	borrow_author(cin);
+    }
+    else if (choice == '3')
+    {
+	borrow_isbn(cin);
+    }
+    else 
+    {
+	cout << "Invalid option!" << endl;
     }
 }
 
@@ -222,19 +252,79 @@ void User::view_borrowed()
     cout << endl;
 }
 
-void User::borrow_a_book(istream& in)
+void User::borrow_title(istream& in)
 {
     string book;
-    cin.ignore(256, '\n');
 
     cout << "Enter title of book to borrow: ";
     getline(in, book);
- 
-    borrowed.push_back(book); 
-    debt += 5; 
-    update_book_file();
 
-    cout << "New book added to debt." << endl << endl;
+    all_books->set_search(new Search_Title(book));
+    Book* target = all_books->getbook();
+
+    //only adds a book if the book exists in Catalog
+    if (target != nullptr)
+    { 
+	borrowed.push_back(book); 
+        debt += 5; 
+        update_book_file();
+	cout << "Successfully borrowed " << book << "." << endl;
+	cout << "New book added to debt." << endl << endl;
+    }
+    else
+    {
+	cout << book << " doesn't exist in our catalog!" << endl;
+    }
+}
+
+void User::borrow_author(istream& in)
+{
+    string author;
+
+    cout << "Enter author to borrow: ";
+    getline(in, author);
+
+    all_books->set_search(new Search_Author(author));
+    Book* target = all_books->getbook();
+
+    //only adds a book if the author exists in Catalog
+    if (target != nullptr)
+    {
+        borrowed.push_back(target->getname());
+        debt += 5;
+        update_book_file();
+	cout << "Successfully borrowed " << target->getname() << "." << endl;
+        cout << "New book added to debt." << endl << endl;
+    }
+    else
+    {
+        cout << author << " doesn't exist in our catalog!" << endl;
+    }
+}
+
+void User::borrow_isbn(istream& in)
+{
+    string isbn;
+
+    cout << "Enter ISBN of book to borrow: ";
+    getline(in, isbn);
+
+    all_books->set_search(new Search_ISBN(isbn));
+    Book* target = all_books->getbook();
+
+    //only adds a book if the ISBN exists in Catalog
+    if (target != nullptr)
+    {
+        borrowed.push_back(target->getname());
+        debt += 5;
+        update_book_file();
+	cout << "Successfully borrowed " << target->getname() << "." << endl;
+        cout << "New book added to debt." << endl << endl;
+    }
+    else
+    {
+        cout << "ISBN " << isbn << " doesn't exist in our catalog!" << endl;
+    }
 }
 
 void User::update_book_file()

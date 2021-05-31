@@ -7,6 +7,10 @@
 #include "display_subgenre.hpp"
 #include "display_author.hpp"
 #include "display_title.hpp"
+#include "search.hpp"
+#include "search_isbn.hpp"
+#include "search_author.hpp"
+#include "search_title.hpp"
 
 #include <iostream>
 #include <sstream>
@@ -32,7 +36,10 @@ class User
 	void view_books();              //view a list of available books
 	void view_borrowed();           //view a list of borrowed books
 	void update_book_file();        //updates borrowed books .txt file if user borrows a new book
-        void borrow_a_book(istream& in);           
+	void borrow_menu();
+        void borrow_title(istream& in);           
+	void borrow_author(istream& in);
+	void borrow_isbn(istream& in);
 	int get_debt() const;
 	string get_username() const; 
 	string get_password() const;

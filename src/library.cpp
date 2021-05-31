@@ -179,9 +179,11 @@ void Library::update_users()
     string title;      //book title to read from books
     
     int debt_cnt;
-    books.open("borrowed_books.txt");
+    int count = 0;
     outFile.open("accounts.txt");
  
+    cin.ignore(256, '\n');
+
     //counts each user's debt total 
     for (int i = 0; i < users.size(); i++)	
     {
@@ -207,6 +209,8 @@ void Library::update_users()
 
   	books.close(); 
     }
+
+    outFile.close();
 }
 
 bool Library::login()
