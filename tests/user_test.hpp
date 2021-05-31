@@ -4,46 +4,38 @@
 #include "gtest/gtest.h"
 #include "../header/user.hpp"
 #include "../header/library.hpp"
+#include "../header/Catalog.hpp"
 #include "../src/user.cpp"
-#include "../header/Book.hpp"
-
+#include <sstream>
 
 TEST(UserTest, UsernameTest) {
-    BookComponent* book = new Book("TestBook", "Test Author");
-    
-    User test = User("username", "password", book);
+    Catalog* catalog = catalog->getInstance();
+    User test = User("FakeUser", "FakePass", 0, catalog);
 
-    EXPECT_EQ(test.get_username(), "username"); 
+    EXPECT_EQ(test.get_username(), "FakeUser"); 
 }
 
 TEST(UserTest, PasswordTest) {
-    BookComponent* book = new Book("TestBook", "Test Author");
+    Catalog* catalog = catalog->getInstance();
+    User test = User("FakeUser", "FakePass", 0, catalog);
 
-    User test = User("username", "password", book);
-
-    EXPECT_EQ(test.get_password(), "password");
+    EXPECT_EQ(test.get_password(), "FakePass");
 }
 
-TEST(UserTest, ViewBooksTest) {
-    stringstream out;
+TEST(UserTest, DebtTest) {
+    Catalog* catalog = catalog->getInstance();
+    User test = User("FakeUser", "FakePass", 25, catalog);
 
-    BookComponent* book1 = new Book("Hamlet", "William Shakespeare"); 
-    BookComponent* book2 = new Book("Twilight" , "Stephanie Myers");
-    BookComponent* book3 = new Book("The Crucible", "Arthur Miller");
-    BookComponent* sub_genre = new BookGroup("Romance");
+    EXPECT_EQ(test.get_debt(), 25);
+}
 
-    sub_genre->Add(book1);
-    sub_genre->Add(book2);
+TEST(UserTest, DebtAccumulation) {
+    Catalog* catalog = catalog->getInstance();
+    User test = User("FakeUser", "FakePass", 0, catalog);
 
-    BookComponent* test_book = new BookGroup("Drama");
-
-    test_book->Add(book3);
-    test_book->Add(sub_genre);
-
-    User test = User("username", "password", test_book);
-
-    test.view_books(out);
-    EXPECT_EQ(out.str(), "Book Group: Drama\n\n\t\tBook: The Crucible by Arthur Miller\n\n\tBook Group: Romance\n\n\t\tBook: Hamlet by William Shakespeare\n\n\t\tBook: Twilight by Stephanie Myers\n\n\n");
+    istringstream in("Test_Book"); 
+    test.borrow_a_book(in);
+    EXPECT_EQ(test.get_debt(), 5);
 }
 
 #endif //__USER__TEST_HPP__
