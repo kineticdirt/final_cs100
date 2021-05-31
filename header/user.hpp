@@ -20,7 +20,7 @@ using namespace std;
 
 class User
 {
-    private:
+    protected:
 	string username;
 	string password;
 	int debt;
