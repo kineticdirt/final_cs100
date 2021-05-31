@@ -100,16 +100,16 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 			cout << "Failed to open borrowed_books" << endl;
 			return;
 		}
-		string* checker = nullptr;
-		getline(file, checker, ' ');
+		string checker = nullptr;
+		file >> checker;
 		while(checker){
 			string title1;
-			if(user_username.compare(*checker)) {
+			if(user_username.compare(checker)) {
 				file >> title1;
 				if(title1.compare(title)) {
 					return;
 				}
-			getline(file, checker, ' ');
+			file >> checker;
 			}
 		}
 		file.close();
