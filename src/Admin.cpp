@@ -102,7 +102,7 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 		}
 		string checker = nullptr;
 		file >> checker;
-		while(checker){
+		while(!file.eof()){
 			string title1;
 			if(user_username.compare(checker)) {
 				file >> title1;
