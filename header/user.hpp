@@ -29,6 +29,7 @@ class User
     public:
 	vector<string> borrowed;
 	User(string, string, int, Catalog*);
+	~User();
 	bool initialize();              //handles running user class until user logs out
 	void initialize_borrowed();     //checks what books the user has borrowed
 	char user_menu();               //prints available user menus	

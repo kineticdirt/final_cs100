@@ -13,15 +13,16 @@ Library::Library(string acc_file_name)
 
 Library::~Library()
 {
+    delete catalog;
+
     if (curr_user != nullptr)
     {
  	delete curr_user; 
     }
 
-    for (auto& i : users)
+    for (int i = 0; i < users.size(); i++)
     {
-	User* delete_user = i;
- 	delete delete_user;
+	delete users[i];
     }
 
     users.clear();
@@ -54,10 +55,9 @@ void Library::initialize()
 		update_users();
 
 		//clears users
-		for (auto& i : users)
+		for (int i = 0; i < users.size(); i++)
     		{
-        	    User* delete_user = i;
-        	    delete delete_user;
+        	    delete users[i];
     		}
     		users.clear();
 
