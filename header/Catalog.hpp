@@ -6,12 +6,17 @@
 #include <cstdio>
 #include "Book.hpp"
 #include "display.hpp"
+#include "search.hpp"
 
 using namespace std;
+
+class Display;
+class Search;
 
 class Catalog {
 private:
         Display* display;
+	Search* s;
         Catalog();
         static Catalog* instance;	
 protected:
@@ -21,6 +26,8 @@ public:
 	~Catalog();
 	void set_display(Display* new_display);
         void print(ostream& out) const;
+	void set_search(Search* new_search);
+        Book* getbook();
         void read_books() {
 		ifstream bookList;
 		Book* book;           //Book object to instantiate from books.txt
