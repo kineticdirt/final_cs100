@@ -102,9 +102,9 @@ public:
 		bookList.close();
 		writingBooks.close();
 		if(remove("books.txt") != 0){
-			rename("writing_books.txt" , "books.txt");	
-		} else {
 			cout << "Failed to create book.txt";
+		} else {
+			rename("writing_books.txt" , "books.txt");
 		}
         
 	}
