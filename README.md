@@ -45,6 +45,14 @@
  
  ## Screenshots
  > Screenshots of the input/output after running your application
+>![display genre](https://user-images.githubusercontent.com/43799855/120387652-07d7a280-c2df-11eb-9697-5dbd9cef3ce0.png)
+>![display subgenre](https://user-images.githubusercontent.com/43799855/120387686-11f9a100-c2df-11eb-9802-d9cfbddcdc38.png)
+>![display title](https://user-images.githubusercontent.com/43799855/120387700-158d2800-c2df-11eb-91f3-b730fed1ef15.png)
+>![display author](https://user-images.githubusercontent.com/43799855/120387710-18881880-c2df-11eb-8041-194187ca84d1.png)
+>![borrowed books](https://user-images.githubusercontent.com/43799855/120387713-19b94580-c2df-11eb-8155-384753f80dc2.png)
+>![view debt](https://user-images.githubusercontent.com/43799855/120387720-1c1b9f80-c2df-11eb-9588-5da5ffa813ea.png)
+>![Quit](https://user-images.githubusercontent.com/43799855/120387734-2178ea00-c2df-11eb-861a-5638b0845fd9.png)
+
  ## Installation/Usage
  * Clone the repository onto your local Linux CLI environment.
  * Make sure you have [CMake](https://cmake.org/) installed.
