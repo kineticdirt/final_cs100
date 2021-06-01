@@ -37,7 +37,7 @@
  > ![Strategy Pattern](https://user-images.githubusercontent.com/32584958/120261055-fb563a00-c24b-11eb-969a-7c52efc5c951.png)
 > * We're also using the Strategy pattern to implement our Search class. It functions very similar to the Display class, where it consists of the User/Admin object pointing to a "Context" (Catalog) class pointing (arrow from the left) to Search. This allows the User/Admin to search a book by title, ISBN, or author. Similarly to the Display class, our Search class would consist of different search functions depending on how the User/Admin wants to search for a book, and they all output the same way, just with variations in their search algorithms.
 > ![Project](https://user-images.githubusercontent.com/32584958/120391043-571fd200-c2e3-11eb-90c9-2d7cf59701a7.png)
-> * This is our overarching OMT diagram for our entire program.
+> * This is our overarching OMT diagram for our entire program. It includes the strategy and singleton patterns and includes the interactions between them. This shows that how every diagram connects to the design pattern and the library interfact.
 
  > ## Final deliverable
  > All group members will give a demo to the TA during lab time. The TA will check the demo and the project GitHub repository and ask a few questions to all the team members. 
