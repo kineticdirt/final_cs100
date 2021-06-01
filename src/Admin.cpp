@@ -124,7 +124,7 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 	}
 }
 
-void printBook(string username, string title) {
+void Admin::printBook(string username, string title) {
 	ofstream outfile;
 	outfile.open("borrowed_books.txt", std::ios::app);
 	if(!outfile.is_open()) {
