@@ -40,4 +40,11 @@ TEST(SearchTest, titleTest_2){
 	EXPECT_EQ(test->getauthor(),"None");
 }
 
+TEST(SearchTest, nulltest){
+        Catalog* c = c->getInstance();
+        c->set_search(new Search_Title("AA"));
+        Book* test = c->getbook();
+        ASSERT_TRUE(test == nullptr);
+}
+
 #endif
