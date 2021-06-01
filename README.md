@@ -18,7 +18,7 @@
  > * This project is interesting to us because the libary system is very similar to many other potential projects, such as retail inventory management or anything with user accounts and administrative privilege. Because of this, tackling this project can allow us to get more comfortable with similar systems we may implement in the future.
  > * The languages/tools we plan on using include:
  >   * [C++](https://www.cplusplus.com/) - We'll be using C++ to implement/code our system design.
- >   * [CMake] (https://cmake.org/) - We'll be using CMake to compile our program.
+ >   * [CMake](https://cmake.org/) - We'll be using CMake to compile our program.
  >   * [Git](https://git-scm.com/) - We'll be using Git to work on different parts of our projects simultaneously and update to our GitHub repository to keep track of our work.
  >   * [GoogleTest](https://github.com/google/googletest) - We'll be using googletest to perform unit tests for our program.
  >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
