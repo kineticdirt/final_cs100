@@ -66,18 +66,19 @@ public:
             }
 	    bookList.close(); 
         }
+	void remove_to_books(string title) {
+			
+	}
 
         void add_to_books(Book* new_book, bool overwriteCondition) {
             	ofstream writingBooks("writing_books.txt");
             	int ISBN_Line = stoi(new_book->getIsbn());
 	    	ifstream bookList;
             	bookList.open("books.txt");
-				//checking if the file is open
             	if(!bookList.is_open()){
                 	cout << "File opening error!" << endl;
             	}
             		int index = 0;
-			//indexing throughout the file
 			string line = "";
             	while (index != ISBN_Line) {
                 	getline(bookList, line, '\n');
