@@ -7,6 +7,7 @@
 #include "Book.hpp"
 #include "display.hpp"
 #include "search.hpp"
+#include <string>
 
 using namespace std;
 
@@ -17,12 +18,13 @@ class Catalog {
 private:
         Display* display;
 	Search* s;
-        Catalog();
+        
         static Catalog* instance;	
 protected:
 	vector<Book*> books;
 
 public:
+	Catalog();
 	~Catalog();
 	void set_display(Display* new_display);
         void print(ostream& out) const;
@@ -67,10 +69,9 @@ public:
 
         void add_to_books(Book* new_book, bool overwriteCondition) {
             	ofstream writingBooks("writing_books.txt");
-            	int ISBN_Line = std::stoi(new_book->getIsbn());
-            	ISBN_Line = ISBN_Line * 5;
-	    		ifstream bookList;
-            	bookList.open ("books.txt");
+            	int ISBN_Line = stoi(new_book->getIsbn());
+	    	ifstream bookList;
+            	bookList.open("books.txt");
 				//checking if the file is open
             	if(!bookList.is_open()){
                 	cout << "File opening error!" << endl;
@@ -83,13 +84,17 @@ public:
 			writingBooks << line << '\n';
 			index++; 
 			}
-		for(int i = 0; i < 5; i++){
+			getline(bookList, line, '\n'); 
 			writingBooks << new_book->getname() << '\n';
+			getline(bookList, line, '\n');
 			writingBooks << new_book->getauthor() << '\n';
+			getline(bookList, line, '\n');
 			writingBooks << new_book->getIsbn() << '\n';
+			getline(bookList, line, '\n');
 			writingBooks << new_book->getgenre() << '\n';
+			getline(bookList, line, '\n');
 			writingBooks << new_book->getsubgenre() << '\n';
-		}
+		
 		while (!bookList.eof()) {
                 	getline(bookList, line, '\n');
 			writingBooks << line << '\n';
