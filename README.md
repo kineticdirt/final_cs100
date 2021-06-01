@@ -69,3 +69,4 @@
  > * We tested our Display class by creating a single instance of Catalog, and using that to read books.txt that can be used across all other test files. The Display tests test each of the genre, subgenre, author, and ISBN to see if they display properly.
  > * We tested our Search class by searching for author, ISBN, and title to see if they return the correct books. We check this with the "get" functions of the Book class.
  > * We tested our Book class by manually creating a Book object with its constructor, and checking if its "get" functions return the correct information we inputted in its constructor.
+ > * v.1.0.0 Initial Stable Release
