@@ -11,6 +11,7 @@ ADD_EXECUTABLE(library
 	src/library.cpp
 	src/user.cpp
 	src/catalog.cpp
+	src/Admin.cpp
 )
 
 ADD_EXECUTABLE(test tests/unit_test.cpp)

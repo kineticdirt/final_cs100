@@ -86,9 +86,9 @@ void Library::initialize()
 	    if (login_admin())
 	    {
 		//loops admin interface until admin logs out
-		//while (curr_admin->initialize()) { }
-		//delete curr_admin;
-		//curr_admin = nullptr;
+		while (curr_admin->initialize()) { }
+		delete curr_admin;
+		curr_admin = nullptr;
     	    }
 	}
         else if (choice == '4')
@@ -128,7 +128,6 @@ void Library::read_users()
 
 void Library::read_admins()
 {
-    /*
     ifstream inFile;
     string username;
     string password;
@@ -149,7 +148,6 @@ void Library::read_admins()
         Admin* new_admin = new Admin(username, password);
         this->admins.push_back(new_admin);
     }
-    */
 }
 
 void Library::init_catalog()
@@ -300,7 +298,6 @@ bool Library::login()
 
 bool Library::login_admin()
 {
-    /*
     ifstream inFile;
     string username;
     string password;
@@ -324,7 +321,6 @@ bool Library::login_admin()
             return true;
         }
     }
-    */
 
     cout << "Wrong Username/Password!" << endl;
 
