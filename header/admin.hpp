@@ -24,6 +24,7 @@ class Admin
         void borrow_user_book(string passwrd, string user_username, string title);        
 	string get_username();
 	string get_password();
+	void printBook(string username, string title);
 };
 
 #endif //__ADMIN_HPP__
