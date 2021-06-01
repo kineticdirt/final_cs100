@@ -18,11 +18,11 @@ None
 15
 Magazine
 Educational
-V for Vendetta
-Alan Moore
+testng
+librarian
 20
-Comic Book
-Science Fiction
+Poem
+Horror
 East of West
 Jonathan Hickman
 25
@@ -33,5 +33,4 @@ Edgar Allan Poe
 30
 Poem
 Horror
-
 

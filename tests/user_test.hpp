@@ -13,7 +13,6 @@ TEST(UserTest, UsernameTest) {
     User test = User("FakeUser", "FakePass", 0, catalog);
 
     EXPECT_EQ(test.get_username(), "FakeUser"); 
-	delete catalog;
 }
 
 TEST(UserTest, PasswordTest) {
@@ -21,7 +20,6 @@ TEST(UserTest, PasswordTest) {
     User test = User("FakeUser", "FakePass", 0, catalog);
 
     EXPECT_EQ(test.get_password(), "FakePass");
-	delete catalog;
 }
 
 TEST(UserTest, DebtTest) {
@@ -29,7 +27,6 @@ TEST(UserTest, DebtTest) {
     User test = User("FakeUser", "FakePass", 25, catalog);
 
     EXPECT_EQ(test.get_debt(), 25);
-	delete catalog;
 }
 
 TEST(UserTest, DebtAccumulation) {
@@ -41,7 +38,6 @@ TEST(UserTest, DebtAccumulation) {
     istringstream in2("The Raven");
     test.borrow_title(in2);
     EXPECT_EQ(test.get_debt(), 10);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowTitle) {
@@ -58,7 +54,6 @@ TEST(UserTest, BorrowTitle) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser2's borrowed books: \n\tThe Lord of the Rings\n\tThe Raven\n\n", output);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowInvalidTitle) {
@@ -73,7 +68,6 @@ TEST(UserTest, BorrowInvalidTitle) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser3's borrowed books: \n\n", output);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowAuthor) {
@@ -88,7 +82,6 @@ TEST(UserTest, BorrowAuthor) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser4's borrowed books: \n\tV for Vendetta\n\n", output);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowInvalidAuthor) {
@@ -103,7 +96,6 @@ TEST(UserTest, BorrowInvalidAuthor) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser5's borrowed books: \n\n", output);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowISBN) {
@@ -118,7 +110,6 @@ TEST(UserTest, BorrowISBN) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser6's borrowed books: \n\tStopping by Woods on a Snowy Evening\n\n", output);
-	delete catalog;
 }
 
 TEST(UserTest, BorrowInvalidISBN) {
@@ -133,7 +124,6 @@ TEST(UserTest, BorrowInvalidISBN) {
     string output = testing::internal::GetCapturedStdout();
 
     EXPECT_EQ("FakeUser7's borrowed books: \n\n", output);
-	delete catalog;
 }
 
 #endif //__USER__TEST_HPP__

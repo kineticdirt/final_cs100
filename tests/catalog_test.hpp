@@ -13,7 +13,6 @@ using namespace std;
 TEST(CatalogTest, addingTest){
 		stringstream out;
 		Catalog* c = c->getInstance();
-		c->read_books();
 		string Isbn = "20";
 		Book* book1 = new Book("testng", "librarian", Isbn, "Poem", "Horror");
 		bool bool1 = true;
