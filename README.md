@@ -56,6 +56,7 @@
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  > * We validated our project with Github Actions, which ensures that the project builds and compiles before we can merge the pull request to the master branch. 
+ > * Our individual class tests are tested with GoogleTest's unit testing system.
  > * We tested our User class by testing different Users' "get" functions, and also their debt accumulation function when borrowing books. We also tested borrowing invalid books, which should not add to a User's debt and borrow history.
  > * We tested our Display class by creating a single instance of Catalog, and using that to read books.txt that can be used across all other test files. The Display tests test each of the genre, subgenre, author, and ISBN to see if they display properly.
  > * We tested our Search class by searching for author, ISBN, and title to see if they return the correct books. We check this with the "get" functions of the Book class.
