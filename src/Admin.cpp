@@ -95,7 +95,7 @@ string Admin::get_password()
 void Admin::borrow_user_book(string passwrd, string user_username, string title) {
 	if(passwrd == get_password()) {
 		ifstream file;
-		file.open("borrowed_books.txt", std::fstream::in);
+		file.open("borrowed_books.txt", std::ios::in);
 		if(!file.is_open()) {
 			cout << "Failed to open borrowed_books" << endl;
 			return;
@@ -104,9 +104,9 @@ void Admin::borrow_user_book(string passwrd, string user_username, string title)
 		file >> checker;
 		while(!file.eof()){
 			string title1;
-			if(user_username.compare(checker)) {
+			if(user_username == checker) {
 				file >> title1;
-				if(title1.compare(title)) {
+				if(title1 == title) {
 					return;
 				}
 			file >> checker;

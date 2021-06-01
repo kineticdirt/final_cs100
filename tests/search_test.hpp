@@ -14,8 +14,10 @@ using namespace std;
 
 TEST(SearchTest, authorTest){
 	Catalog* c = c->getInstance();
-	c->set_search(new Search_Author("F. Scott Fitzgerald"));
+	auto search = new Search_Author("F. Scott Fitzgerald");
+	c->set_search(search);
 	Book* test = c->getbook();
+        ASSERT_TRUE(test != nullptr);
 	EXPECT_EQ(test->getname(),"The Great Gatsby");
 }
 
@@ -23,6 +25,7 @@ TEST(SearchTest, isbnTest){
 	Catalog* c = c->getInstance();
 	c->set_search(new Search_ISBN("30"));
 	Book* test = c->getbook();
+        ASSERT_TRUE(test != nullptr);
 	EXPECT_EQ(test->getname(),"The Raven");
 }
 
@@ -30,6 +33,7 @@ TEST(SearchTest, titleTest){
 	Catalog* c = c->getInstance();
 	c->set_search(new Search_Title("National Geographic September 2020"));
 	Book* test = c->getbook();
+        ASSERT_TRUE(test != nullptr);
 	EXPECT_EQ(test->getIsbn(),"15");
 }
 
@@ -37,6 +41,7 @@ TEST(SearchTest, titleTest_2){
 	Catalog* c = c->getInstance();
 	c->set_search(new Search_Title("National Geographic September 2020"));
 	Book* test = c->getbook();
+        ASSERT_TRUE(test != nullptr);
 	EXPECT_EQ(test->getauthor(),"None");
 }
 

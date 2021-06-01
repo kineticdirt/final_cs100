@@ -18,11 +18,11 @@ None
 15
 Magazine
 Educational
-testng
-librarian
+V for Vendetta
+Alan Moore
 20
-Poem
-Horror
+Comic Book
+Science Fiction
 East of West
 Jonathan Hickman
 25
@@ -33,4 +33,8 @@ Edgar Allan Poe
 30
 Poem
 Horror
-
+Stopping by Woods on a Snowy Evening
+Robert Frost
+35
+Poem 
+Non-Fiction
