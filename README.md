@@ -24,7 +24,7 @@
  >   * [Valgrind](https://valgrind.org/) - We'll be using Valgrind to check for any memory leaks or other problems that are otherwise hidden.
  > * The inputs and outputs of our project include:
  >   * Inputs: username, password, book ISBN, book title, author, genre, and sub-genre.
- >   * Outputs: list of books (sorted based on our search algorithms), books to display, and user/admin interfaces (screen for login, adding/deleting users, adding/deleting books, etc.).
+ >   * Outputs: list of books (based on our search algorithms), books to display (based on our display algorithms), user/admin interfaces (screen for login, adding/deleting users, adding/deleting books, etc.), and user information.
  > * The design patterns we'll be using:
  >   * We'll be using the Singleton design pattern in order to create a single book Catalog object that's ensured to be the only instance of itself. Our Catalog Singleton class will contain the entire list of books current available, and includes functions to manipulate the Book objects stored in a vector. A problem we anticipate in encountering is allowing multiple classes to access Catalog, which can cause many dependency and declaration issues because of the many moving parts. In our Library program, we have 3 classes capable of accessing Catalog: Library, Admin, and User. Because of this, having a single Catalog object instance that can be accessed by all 3 classes without creating new instances of itself is extremely useful. 
  >   * We'll be using the Strategy design pattern to implement various book display/search functions, such as display/search by title, author, and genre/sub-genre. A problem we anticipate encountering is not being able to display/search books with a generalized display/search function, since we'll have to account for multiple ways of displays/searches. This is because we're allowing users to display/search books using different methods, which can make a generalized display/search function very confusing and inefficient. The Strategy design pattern is a good solution to this problem because it allows us to create multiple display/search functions without affecting the general display/search result. The different display/search functions will take in different inputs, but will all function the same way by returning/displaying a title, author, or all books associated with a genre or subgenre.
@@ -55,4 +55,9 @@
  * To run tests, run the command "./tests".
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+ > * We validated our project with Github Actions, which ensures that the project builds and compiles before we can merge the pull request to the master branch. 
+ > * Our individual class tests are tested with GoogleTest's unit testing system.
+ > * We tested our User class by testing different Users' "get" functions, and also their debt accumulation function when borrowing books. We also tested borrowing invalid books, which should not add to a User's debt and borrow history.
+ > * We tested our Display class by creating a single instance of Catalog, and using that to read books.txt that can be used across all other test files. The Display tests test each of the genre, subgenre, author, and ISBN to see if they display properly.
+ > * We tested our Search class by searching for author, ISBN, and title to see if they return the correct books. We check this with the "get" functions of the Book class.
+ > * We tested our Book class by manually creating a Book object with its constructor, and checking if its "get" functions return the correct information we inputted in its constructor.
