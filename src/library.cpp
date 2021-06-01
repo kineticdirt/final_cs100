@@ -25,7 +25,18 @@ Library::~Library()
 	delete users[i];
     }
 
+    if (curr_admin != nullptr)
+    {
+        delete curr_admin;
+    }
+
+    for (int i = 0; i < admins.size(); i++)
+    {
+        delete admins[i];
+    }
+
     users.clear();
+    admins.clear();
 }
 
 void Library::initialize()
@@ -37,6 +48,9 @@ void Library::initialize()
 
     //creates list of users
     read_users();
+
+    //creates list of admins
+    read_admins();
 
     //reads books available in Catalog
     catalog->read_books();
@@ -64,7 +78,15 @@ void Library::initialize()
 		read_users();
 	    }
 	}
-        else if (choice == '3')
+	else if (choice == '3')
+	{
+	    if (login_admin())
+	    {
+		//loops admin interface until admin logs out
+		//while (curr_admin->initialize()) { }
+    	    }
+	}
+        else if (choice == '4')
 	{
 	    cout << "Goodbye!" << endl;
 	    break;
@@ -99,6 +121,32 @@ void Library::read_users()
     }
 }
 
+void Library::read_admins()
+{
+    /*
+    ifstream inFile;
+    string username;
+    string password;
+    string temp;
+
+    inFile.open("admin_accounts.txt");
+    if (!inFile.is_open())
+    {
+        cout << "admin_accounts.txt does not exist!" << endl;
+    }
+
+    while (getline(inFile, temp))
+    {
+        username = temp;
+        getline(inFile, temp);
+        password = temp;
+
+        Admin* new_admin = new Admin(username, password);
+        this->admins.push_back(new_admin);
+    }
+    */
+}
+
 void Library::init_catalog()
 {
     this->catalog = catalog->getInstance();
@@ -114,11 +162,12 @@ char Library::menu()
     cout << "------Library Menu------" << endl;
     cout << "========================" << endl;
     cout << "1. Create Account" << endl;
-    cout << "2. Login" << endl;
-    cout << "3. Exit" << endl;
+    cout << "2. User Login" << endl;
+    cout << "3. Admin Login" << endl;
+    cout << "4. Exit" << endl;
  
     /* User Input */ 
-    while (choice != '1' && choice != '2' && choice != '3')
+    while (choice != '1' && choice != '2' && choice != '3' && choice != '4')
     {	
  	cin >> choice;
   	cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -127,11 +176,11 @@ char Library::menu()
 	{
 	    create_acc();
 	}
-        else if (choice == '2' || choice == '3')
+        else if (choice == '2' || choice == '3' || choice == '4')
 	{
 	    return choice;
 	}
-    	else if (choice != '1' && choice != '2' && choice != '3')
+    	else if (choice != '1' && choice != '2' && choice != '3' && choice != '4')
     	{
 	    cout << "Enter a valid menu option!" << endl;
     	}
@@ -244,6 +293,38 @@ bool Library::login()
     return false;
 }
 
+bool Library::login_admin()
+{
+    /*
+    ifstream inFile;
+    string username;
+    string password;
+
+    cout << "Username: ";
+    getline(cin, username);
+    cout << "Password: ";
+    getline(cin, password);
+
+    for (int i = 0; i < admins.size(); i++)
+    {
+        if (username == admins.at(i)->get_username() &&
+            password == admins.at(i)->get_password())
+        {
+	    //sets current admin information
+	    curr_admin = new Admin(username, password);
+
+	    // Outputs Welcome Message 
+	    cout << "\nWelcome, " << username << "!" << endl;
+
+            return true;
+        }
+    }
+    */
+
+    cout << "Wrong Username/Password!" << endl;
+
+    return false;
+}
 
 
 
