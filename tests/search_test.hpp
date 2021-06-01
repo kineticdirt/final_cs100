@@ -40,11 +40,26 @@ TEST(SearchTest, titleTest_2){
 	EXPECT_EQ(test->getauthor(),"None");
 }
 
-TEST(SearchTest, nulltest){
+TEST(SearchTest, title_nulltest){
         Catalog* c = c->getInstance();
         c->set_search(new Search_Title("AA"));
         Book* test = c->getbook();
         ASSERT_TRUE(test == nullptr);
 }
+
+TEST(SearchTest, isbn__nulltest){
+        Catalog* c = c->getInstance();
+        c->set_search(new Search_ISBN("100"));
+        Book* test = c->getbook();
+        ASSERT_TRUE(test == nullptr);
+}
+
+TEST(SearchTest, author_nulltest){
+        Catalog* c = c->getInstance();
+        c->set_search(new Search_Author("AA"));
+        Book* test = c->getbook();
+        ASSERT_TRUE(test == nullptr);
+}
+
 
 #endif
