@@ -1,42 +1,41 @@
+
 #include "../header/admin.hpp"
+#include <iostream>
+#include <string>
 
-Admin::Admin(string username, string password) : public User(username, password){}
 
-bool User::initialize()
-{
-    char choice = ' ';
-    choice = user_menu();
-    if (choice == '1')
-    {
-	    view_books();
-    }
-    else  //if user enters '0'
-    {
-	    return false;
-    }
-    
-    return true;
+Admin::Admin(string username, string password) {
+	  this->username = username;
+	  this->password = password;
+	  ofstream outFile;
+		outFile.open("admin_accounts.txt", std::ios::app);
+	  if (!outFile.is_open())
+		{
+			  cout << "admin_accounts.txt" << " does not exist!" << endl;
+	   } 	else {
+			  cout << get_username() << " : " << get_password() << endl;
+		}
 }
 
-bool User::initialize()
+bool Admin::initialize()
 {
     char choice = ' ';
-    choice = user_menu();
+    choice = admin_menu();
     if (choice == '1')
     {
-	view_books();
+	//view_books();
     }
     else if (choice == '3')
     {
-	borrow_a_book();
+	//borrow_user_book();
     }
     else if (choice == '4')
     {
-		view_debt();
+		//na
     }
     else if (choice == '5')
     {
-		view_borrowed();
+		//na
     }
     else if (choice == '0')
     {
@@ -49,6 +48,7 @@ bool User::initialize()
     
     return true;
 }
+
 
 char Admin::admin_menu()
 {
@@ -82,31 +82,56 @@ char Admin::admin_menu()
     }
 }
 
-void Admin::view_info()
-{
-    cout << "\nUsername: " << get_username() << endl;
-    cout << "Password: " << get_password() << endl;
-}
 
-string Admin::get_username() const 
+string Admin::get_username()
 {
     return username;
 }
 
-string Admin::get_password() const
+string Admin::get_password()
 {
     return password;
 }
-
-/*void Admin::view_books()
-/*
-void Admin::view_books()
-
-{
-    stringstream out;
-    cout << "\nAvailable Books: " << endl;
-    avail_books->display(out);    
-
-    cout << out.str() << endl;
+void Admin::borrow_user_book(string passwrd, string user_username, string title) {
+	if(passwrd == get_password()) {
+		ifstream file;
+		file.open("borrowed_books.txt", std::fstream::in);
+		if(!file.is_open()) {
+			cout << "Failed to open borrowed_books" << endl;
+			return;
+		}
+		string checker = "";
+		file >> checker;
+		while(!file.eof()){
+			string title1;
+			if(user_username.compare(checker)) {
+				file >> title1;
+				if(title1.compare(title)) {
+					return;
+				}
+			file >> checker;
+			}
+		}
+		file.close();
+		cout << "entering check" << endl;
+		printBook(user_username, title);
+		
+	} else { 
+		cout << "incorrect password, reenter correct password" << endl;
+		string passwrd1;
+		cin >> passwrd1; 
+		borrow_user_book(passwrd1, user_username, title);
+	}
 }
-*/
+
+void printBook(string username, string title) {
+	ofstream outfile;
+	outfile.open("borrowed_books.txt", std::ios::app);
+	if(!outfile.is_open()) {
+			cout << "Failed to open borrowed_books" << endl;
+			return;
+	}
+	outfile << username << " " << title << endl;
+        outfile.close();
+	return;
+}
