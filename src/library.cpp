@@ -66,6 +66,9 @@ void Library::initialize()
 		//loops user interface until user logs out
 		while (curr_user->initialize()) { }
 
+	        delete curr_user;
+	 	curr_user = nullptr;
+
 		update_users();
 
 		//clears users
@@ -84,6 +87,8 @@ void Library::initialize()
 	    {
 		//loops admin interface until admin logs out
 		//while (curr_admin->initialize()) { }
+		//delete curr_admin;
+		//curr_admin = nullptr;
     	    }
 	}
         else if (choice == '4')
